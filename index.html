@@ -6,26 +6,29 @@
   <title>Sparrow — Messages that leave no trail</title>
   <meta
     name="description"
-    content="End-to-end encrypted messaging with a federated, independently hostable transport network built with Kotlin Multiplatform."
+    content="End-to-end encrypted messaging routed through 1–5 hop federated Community Nodes."
   />
   <meta name="theme-color" content="#071A2E" />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="preconnect" href="https://googleapis.com" />
+  <link rel="preconnect" href="https://gstatic.com" crossorigin />
+  <link href="https://googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <header class="site-header">
-    <div class="container nav-bar">
+    <div class="nav-inner">
       <a href="#top" class="brand" aria-label="Sparrow Home">
-        <img src="./favicon.svg" alt="" class="brand-mark" width="34" height="34" />
+        <img src="./favicon.svg" alt="" width="26" height="26" />
         <span>Sparrow</span>
       </a>
 
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="#features" data-i18n="nav.features">Features</a>
-        <a href="#how-it-works" data-i18n="nav.howItWorks">How it works</a>
-        <a href="#video" data-i18n="nav.video">Video</a>
-        <a href="#beta" data-i18n="nav.beta">Beta Test</a>
-        <a href="#support" data-i18n="nav.support">Support</a>
+        <a href="#how-it-works">Transport</a>
+        <a href="#host-server">Host a Server</a>
+        <a href="#beta">Android Beta</a>
+        <a href="#support">Support</a>
+        <a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer">Docs</a>
       </nav>
 
       <div class="nav-actions">
@@ -35,518 +38,278 @@
         </div>
 
         <a
-          class="icon-btn"
+          class="icon-link"
           data-config-href="githubRepoUrl"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
-          title="GitHub (cbgm/Sparrow)"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
           </svg>
         </a>
-
-        <button
-          type="button"
-          class="icon-btn menu-toggle"
-          id="menu-toggle"
-          aria-expanded="false"
-          aria-controls="mobile-nav"
-          aria-label="Toggle navigation menu"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <line x1="4" y1="7" x2="20" y2="7" />
-            <line x1="4" y1="12" x2="20" y2="12" />
-            <line x1="4" y1="17" x2="20" y2="17" />
-          </svg>
-        </button>
       </div>
-    </div>
-
-    <div class="mobile-nav" id="mobile-nav">
-      <a href="#features" data-i18n="nav.features">Features</a>
-      <a href="#how-it-works" data-i18n="nav.howItWorks">How it works</a>
-      <a href="#video" data-i18n="nav.video">Video</a>
-      <a href="#beta" data-i18n="nav.beta">Beta Test</a>
-      <a href="#support" data-i18n="nav.support">Support</a>
-      <a data-config-href="githubRepoUrl" target="_blank" rel="noopener noreferrer" data-i18n="nav.github">GitHub</a>
     </div>
   </header>
 
   <main id="top">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow-badge">
-            <span class="status-dot" aria-hidden="true"></span>
-            <span data-i18n="hero.badge">Public Beta · v1.0.0-beta.1 · Android</span>
-          </div>
-          <h1 data-i18n="hero.title">Messages that leave no trail.</h1>
-          <p class="hero-subtitle" data-i18n="hero.subtitle">
-            End-to-end encrypted messaging built with Kotlin Multiplatform and a federated, independently hostable network of Community Nodes — so no single server or operator controls your communication.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#beta-placeholder" class="btn btn-primary" data-placeholder="betaTest" data-i18n="hero.ctaBeta">
-              Join Beta Test
-            </a>
-            <a
-              class="btn btn-secondary"
-              data-config-href="githubRepoUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-              </svg>
-              <span data-i18n="hero.ctaGithub">View on GitHub</span>
-            </a>
-            <a href="#video" class="btn btn-ghost" data-i18n="hero.ctaVideo">Watch product video</a>
-          </div>
-
-          <div class="hero-pills">
-            <span class="chip">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <span data-i18n="hero.pillCrypto">libsodium E2EE</span>
-            </span>
-            <span class="chip">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8" stroke-dasharray="3 3"/></svg>
-              <span data-i18n="hero.pillOnion">1–5 Hop Onion Circuits</span>
-            </span>
-            <span class="chip">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="8" rx="2"/><rect x="2" y="13" width="20" height="8" rx="2"/></svg>
-              <span data-i18n="hero.pillFederated">Self-Hostable Nodes</span>
-            </span>
-          </div>
+    <!-- BAND 1: HERO -->
+    <section class="band band-base hero">
+      <div class="container hero-center">
+        <div class="logo-stage" id="logo-stage" role="button" tabindex="0" aria-label="Interactive Sparrow Logo">
+          <canvas id="sparrow-hero-canvas" width="240" height="240"></canvas>
         </div>
 
-        <div class="hero-visual">
-          <div class="logo-stage" id="logo-stage" role="button" tabindex="0" aria-label="Interactive Sparrow Logo">
-            <canvas id="sparrow-hero-canvas" width="420" height="420"></canvas>
-          </div>
-        </div>
-      </div>
-    </section>
+        <span class="pill-badge">
+          <span class="dot"></span>
+          <span data-i18n="hero.badge">v1.0.0-beta.1 · Android</span>
+        </span>
 
-    <!-- About & Features -->
-    <section class="section" id="features">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="eyebrow" data-i18n="about.eyebrow">What is Sparrow?</div>
-          <h2 data-i18n="about.title">Encrypted messaging without one mandatory server</h2>
-          <p class="section-lead" data-i18n="about.lead">
-            Mainstream encrypted messengers pair strong encryption with a single provider-operated backend. Sparrow keeps encryption strictly on your device and splits the infrastructure into independent Control Planes and community-run nodes.
-          </p>
-        </div>
+        <h1 data-i18n="hero.title">Messages that leave no trail.</h1>
 
-        <div class="callout reveal">
-          <svg class="callout-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-            <line x1="12" y1="9" x2="12" y2="13"/>
-            <line x1="12" y1="17" x2="12.01" y2="17"/>
-          </svg>
-          <div>
-            <h3 data-i18n="about.statusTitle">Honest Beta Status</h3>
-            <p data-i18n="about.statusText">
-              Sparrow 1.0.0-beta.1 is an experimental public beta for Android (API 29+). iOS source sets exist in Kotlin Multiplatform, but iOS is not a usable target yet. Sparrow has not yet completed an independent third-party security audit.
-            </p>
-          </div>
-        </div>
+        <p class="hero-sub">
+          Device-side libsodium encryption routed through 1–5 hop federated Community Nodes. Zero central servers. Zero push services.
+        </p>
 
-        <div class="grid-3">
-          <article class="card reveal">
-            <div class="card-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            </div>
-            <h3 data-i18n="about.cards.0.title">Client-Side Cryptography</h3>
-            <p data-i18n="about.cards.0.desc">Direct chats use libsodium sealed boxes and Ed25519 signatures; groups use XChaCha20-Poly1305-IETF with epoch key rotation and SHA-256 safety numbers.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
-            </div>
-            <h3 data-i18n="about.cards.1.title">Onion Circuits & Decoys</h3>
-            <p data-i18n="about.cards.1.desc">Every mailbox request wraps in layers and travels through 1–5 relays of distinct operators (default 2) with 1–3 parallel circuits and optional decoy envelopes.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <h3 data-i18n="about.cards.2.title">Offline Mailboxes, Zero Push</h3>
-            <p data-i18n="about.cards.2.desc">No Google/Apple push service required. Recipients fetch encrypted, size-padded envelopes (1–256 KiB classes) from capability-protected mailboxes through their circuits.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <h3 data-i18n="about.cards.3.title">Direct & Group Chats</h3>
-            <p data-i18n="about.cards.3.desc">Replies, edits, deletions, reactions, typing indicators, encrypted attachments (photo, video, file, location, contact), and verified QR identity exchange.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            </div>
-            <h3 data-i18n="about.cards.4.title">Polls, Expenses & SEPA</h3>
-            <p data-i18n="about.cards.4.desc">Group polls with optional anonymity and expiry, shared expense boards with on-device receipt OCR, node-cached exchange rates, and EPC/SEPA QR settle-up.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/></svg>
-            </div>
-            <h3 data-i18n="about.cards.5.title">Local Intelligence & Lock</h3>
-            <p data-i18n="about.cards.5.desc">Local Whisper voice transcription, optional on-device semantic search and safety analysis, encrypted identity backups, and device-owner app lock.</p>
-          </article>
-        </div>
-
-        <div class="compare-panel reveal">
-          <div class="compare-header">
-            <h3 data-i18n="about.compareTitle">Where Sparrow differs</h3>
-            <a data-config-href="docsWhySparrowUrl" target="_blank" rel="noopener noreferrer">
-              <span data-i18n="about.docsLink">Read “What makes Sparrow different?”</span> →
-            </a>
-          </div>
-          <div class="compare-grid">
-            <div class="compare-item">
-              <strong data-i18n="about.compareRows.0.label">Trust Model</strong>
-              <span data-i18n="about.compareRows.0.value">Multiple Control Planes + independent Community Nodes with automatic client failover.</span>
-            </div>
-            <div class="compare-item">
-              <strong data-i18n="about.compareRows.1.label">Metadata Protection</strong>
-              <span data-i18n="about.compareRows.1.value">Home node sees IP but not destination; middle relays see only next hop; mailbox never sees your IP.</span>
-            </div>
-            <div class="compare-item">
-              <strong data-i18n="about.compareRows.2.label">Not a Tor Replacement</strong>
-              <span data-i18n="about.compareRows.2.value">Relay count is still small and operators self-declare. Do not expect Tor-level anonymity against global observers.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How Communication Works -->
-    <section class="section" id="how-it-works">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="eyebrow" data-i18n="comm.eyebrow">How Communication Works</div>
-          <h2 data-i18n="comm.title">Wrapped in layers. Delivered without exposing both ends.</h2>
-          <p class="section-lead" data-i18n="comm.lead">
-            Every message stays encrypted end-to-end on your device, travels through relays of different operators, and lands in a recipient-selected mailbox.
-          </p>
-        </div>
-
-        <div class="comm-shell reveal">
-          <div class="canvas-panel">
-            <div class="canvas-toolbar">
-              <div class="toolbar-group">
-                <span data-i18n="comm.hopsLabel">Circuit hops:</span>
-                <div class="segmented" role="group" aria-label="Relay hops">
-                  <button type="button" class="seg-btn active" data-hops="2">2</button>
-                  <button type="button" class="seg-btn" data-hops="3">3</button>
-                  <button type="button" class="seg-btn" data-hops="5">5</button>
-                </div>
-              </div>
-
-              <label class="switch-label">
-                <input type="checkbox" id="decoys-toggle" checked />
-                <span data-i18n="comm.decoysLabel">Decoy envelopes</span>
-              </label>
-
-              <button type="button" class="btn btn-secondary btn-sm" id="onion-play-btn" data-i18n="comm.pause">
-                Pause
-              </button>
-            </div>
-
-            <canvas id="onion-canvas" width="680" height="360"></canvas>
-          </div>
-
-          <div class="steps-list" id="comm-steps">
-            <button type="button" class="step-card active" data-step="0">
-              <h3 data-i18n="comm.steps.0.title">1. Encrypt & Pad on Device</h3>
-              <p data-i18n="comm.steps.0.desc">Your device encrypts the message for the recipient (libsodium) and pads it to fixed size classes (1–256 KiB) so packet sizes stay uniform.</p>
-            </button>
-            <button type="button" class="step-card" data-step="1">
-              <h3 data-i18n="comm.steps.1.title">2. Multi-Hop Onion Circuit</h3>
-              <p data-i18n="comm.steps.1.desc">Your app wraps the request in onion layers through 1–5 relays of different operators. Each relay peels one layer and only knows the next hop.</p>
-            </button>
-            <button type="button" class="step-card" data-step="2">
-              <h3 data-i18n="comm.steps.2.title">3. Recipient Mailbox & Decoys</h3>
-              <p data-i18n="comm.steps.2.desc">The padded ciphertext lands in the recipient’s mailbox without sender or recipient IDs. Optional decoy envelopes mask timing across contacts.</p>
-            </button>
-            <button type="button" class="step-card" data-step="3">
-              <h3 data-i18n="comm.steps.3.title">4. Federated Discovery & Failover</h3>
-              <p data-i18n="comm.steps.3.desc">Control Planes provide signed node directories and alias routes (queried via 2 relays). If a node drops, your app automatically fails over.</p>
-            </button>
-          </div>
-        </div>
-
-        <div class="section-foot-link">
-          <a data-config-href="docsTransportUrl" target="_blank" rel="noopener noreferrer">
-            <span data-i18n="comm.docsLink">Explore transport architecture in the docs</span> →
+        <div class="hero-actions">
+          <a href="#beta-placeholder" class="btn btn-primary" data-placeholder="betaTest" data-i18n="hero.ctaBeta">
+            Join Beta Test
+          </a>
+          <a class="btn btn-secondary" data-config-href="githubReleasesUrl" target="_blank" rel="noopener noreferrer">
+            Download APK →
           </a>
         </div>
+
+        <div class="stack-bar">
+          <span>libsodium E2EE</span>
+          <span>·</span>
+          <span>1–5 Hop Onion</span>
+          <span>·</span>
+          <span>256 KiB Padded Mailboxes</span>
+          <span>·</span>
+          <span>Kotlin Multiplatform</span>
+        </div>
       </div>
     </section>
 
-    <!-- Product Video -->
-    <section class="section" id="video">
+    <!-- BAND 2: LIVE ONION DIAGRAM -->
+    <section class="band band-alt" id="how-it-works">
       <div class="container">
-        <div class="section-header reveal">
-          <div class="eyebrow" data-i18n="video.eyebrow">Product Video</div>
-          <h2 data-i18n="video.title">See Sparrow in action</h2>
-          <p class="section-lead" data-i18n="video.lead">
-            A walkthrough of Sparrow’s Android beta, onboarding tour, encrypted messaging, and onion-routed transport.
+        <div class="section-head">
+          <span class="eyebrow">01 / Zero-Metadata Transport</span>
+          <h2>Wrapped in layers. Delivered blind.</h2>
+        </div>
+
+        <div class="diagram-wrap">
+          <div class="diagram-bar">
+            <div class="toolbar-group">
+              <span>Hops:</span>
+              <div class="segmented" role="group" aria-label="Relay hops">
+                <button type="button" class="seg-btn active" data-hops="2">2</button>
+                <button type="button" class="seg-btn" data-hops="3">3</button>
+                <button type="button" class="seg-btn" data-hops="5">5</button>
+              </div>
+            </div>
+
+            <label class="switch-label">
+              <input type="checkbox" id="decoys-toggle" checked />
+              <span>Decoy traffic</span>
+            </label>
+
+            <button type="button" class="btn-inline" id="onion-play-btn">Pause</button>
+          </div>
+
+          <canvas id="onion-canvas" width="840" height="340"></canvas>
+        </div>
+
+        <div class="step-row" id="comm-steps">
+          <button type="button" class="step-card active" data-step="0">
+            <strong>01. Seal &amp; Pad</strong>
+            <span>Device encrypts &amp; pads to fixed 1–256 KiB classes.</span>
+          </button>
+          <button type="button" class="step-card" data-step="1">
+            <strong>02. Onion Hops</strong>
+            <span>Each relay peels one layer and knows only the next hop.</span>
+          </button>
+          <button type="button" class="step-card" data-step="2">
+            <strong>03. Dead-Drop</strong>
+            <span>Stored in recipient mailbox with zero sender/recipient IDs.</span>
+          </button>
+          <button type="button" class="step-card" data-step="3">
+            <strong>04. Failover</strong>
+            <span>Signed Control Planes route around offline nodes.</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- BAND 3: HOST A SERVER (WEBPACK-STYLE WALKTHROUGH) -->
+    <section class="band band-base" id="host-server">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">02 / Federation</span>
+          <h2>Host a Community Node</h2>
+          <p class="section-lead">
+            Every independent relay and mailbox operator strengthens circuit diversity. Deploy the unified Ktor + Caddy Docker stack on any Linux, macOS, or Windows host with ports 80 and 443 open.
           </p>
         </div>
 
-        <div class="video-frame reveal" id="video-frame">
+        <div class="wb-step">
+          <h3>Clone the Server Bundle</h3>
+          <div class="terminal">
+            <div class="terminal-top">
+              <span>Terminal</span>
+              <button type="button" class="copy-btn" data-copy="git clone https://github.com && cd Sparrow/server">Copy</button>
+            </div>
+            <pre><code>git clone https://github.com
+cd Sparrow/server</code></pre>
+          </div>
+        </div>
+
+        <div class="wb-step">
+          <h3>Configure Your Node</h3>
+          <p class="file-caption"><strong>server/.env</strong></p>
+          <div class="terminal">
+            <div class="terminal-top">
+              <span>.env</span>
+              <button type="button" class="copy-btn" data-copy="cp .env.example .env">Copy</button>
+            </div>
+            <pre><code>SPARROW_DOMAIN=node.example.org
+SPARROW_OPERATOR_NAME="My Community Node"
+SPARROW_CONTROL_PLANES=https://sparrow-messenger.org</code></pre>
+          </div>
+          <p class="step-note">
+            Copy <code>.env.example</code> to <code>.env</code> and set your public domain so Caddy can automatically provision TLS certificates.
+          </p>
+        </div>
+
+        <div class="wb-step">
+          <h3>Build &amp; Launch</h3>
+          <div class="terminal">
+            <div class="terminal-top">
+              <span>Terminal</span>
+              <button type="button" class="copy-btn" data-copy="docker compose up -d --build">Copy</button>
+            </div>
+            <pre><code>docker compose up -d --build</code></pre>
+          </div>
+          <p class="step-note">
+            Starts the Ktor relay/mailbox service alongside Caddy reverse proxy in the background.
+          </p>
+        </div>
+
+        <div class="wb-step">
+          <h3>Verify Your Endpoint</h3>
+          <div class="terminal">
+            <div class="terminal-top">
+              <span>Terminal</span>
+              <button type="button" class="copy-btn" data-copy="curl -I https://example.org">Copy</button>
+            </div>
+            <pre><code>curl -I https://example.org</code></pre>
+          </div>
+          <p class="step-note">
+            Returns <code>HTTP/2 200</code> with your live gateway, federation, and mailbox status page.
+            <a data-config-href="docsServerHostingUrl" target="_blank" rel="noopener noreferrer">Read full hosting docs →</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAND 4: ANDROID BETA & PRODUCT VIDEO -->
+    <section class="band band-alt" id="beta">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">03 / Public Beta</span>
+          <h2>Try Sparrow on Android</h2>
+          <p class="section-lead">
+            Available for Android 10+ (API 29). Keys are generated strictly on your device—back them up under <code>Settings → Identity</code> to restore across beta releases.
+          </p>
+        </div>
+
+        <div class="hero-actions" style="justify-content: flex-start; margin-bottom: 2.25rem;">
+          <a href="#beta-placeholder" class="btn btn-primary" data-placeholder="betaTest" data-i18n="beta.ctaBeta">
+            Join Beta Test
+          </a>
+          <a class="btn btn-secondary" data-config-href="githubReleasesUrl" target="_blank" rel="noopener noreferrer">
+            Download APK (GitHub Releases) →
+          </a>
+        </div>
+
+        <div class="video-frame" id="video-frame">
           <div class="video-poster" id="video-poster">
-            <img src="./favicon.svg" alt="" class="video-poster-mark" width="64" height="64" />
-            <span class="eyebrow-badge" data-i18n="video.posterBadge">Sparrow 1.0 Beta Walkthrough</span>
-            <h3 data-i18n="video.posterTitle">Watch the Sparrow Product Video</h3>
-            <p data-i18n="video.posterSubtitle">
-              Click to load the privacy-enhanced YouTube embed (youtube-nocookie.com), or open directly on YouTube.
-            </p>
-            <div class="video-actions">
-              <button type="button" class="btn btn-primary" id="load-video-btn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                <span data-i18n="video.playBtn">Load & Play Video</span>
-              </button>
-              <a
-                class="btn btn-secondary"
-                data-config-href="youtubeVideoUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-i18n="video.watchExternal"
-              >
-                Watch on YouTube
-              </a>
-            </div>
+            <h3>Watch the 1.0 Beta Walkthrough</h3>
+            <p>Privacy-enhanced YouTube embed (loads only when clicked).</p>
+            <button type="button" class="btn btn-primary" id="load-video-btn">
+              ▶ Load &amp; Play Video
+            </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Beta Test -->
-    <section class="section" id="beta">
-      <div class="container">
-        <div class="beta-banner reveal">
-          <div>
-            <div class="eyebrow" data-i18n="beta.eyebrow">Beta Testing</div>
-            <h2 data-i18n="beta.title">Try the Android Beta</h2>
-            <p data-i18n="beta.lead">
-              Sparrow 1.0.0-beta.1 is available for Android (API 29+). Test federated messaging, try out multi-hop onion circuits, and help shape the 1.0 release.
-            </p>
-            <span class="beta-note" data-i18n="beta.note">
-              Beta tip: Keep an encrypted identity backup (Settings → Identity) so you can restore your keys across updates.
-            </span>
-          </div>
+    <!-- BAND 5: SUPPORT THE PROJECT (WEBPACK-STYLE) -->
+    <section class="band band-base support-band" id="support">
+      <div class="container support-center">
+        <span class="eyebrow">04 / Community</span>
+        <h2>Support the Project</h2>
+        <p class="support-lead">
+          Sparrow is independent, open-source software built without ads, tracking, or venture lock-in. Your support funds test servers, development, and an upcoming third-party security audit.
+        </p>
 
-          <div class="beta-cta-col">
-            <a href="#beta-placeholder" class="btn btn-primary" data-placeholder="betaTest" data-i18n="beta.ctaBeta">
-              Join Beta Test (Placeholder)
-            </a>
-            <a
-              class="btn btn-secondary"
-              data-config-href="githubReleasesUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-i18n="beta.ctaReleases"
-            >
-              GitHub Releases (APK)
-            </a>
-            <span class="placeholder-hint" data-i18n="beta.placeholderTag">Placeholder link · configure in config.js</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Support the Project -->
-    <section class="section" id="support">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="eyebrow" data-i18n="support.eyebrow">Support the Project</div>
-          <h2 data-i18n="support.title">Help keep Sparrow independent</h2>
-          <p class="section-lead" data-i18n="support.lead">
-            A federated messenger gets stronger with every independent node operator, tester, contributor, and supporter.
-          </p>
+        <div class="hero-actions" style="margin-bottom: 1.5rem;">
+          <a href="#supporter-placeholder" class="btn btn-primary" data-placeholder="supporter">
+            Become a Supporter
+          </a>
+          <a href="#coffee-placeholder" class="btn btn-secondary" data-placeholder="buyMeACoffee">
+            Buy Me a Coffee
+          </a>
+          <a href="#contact-placeholder" class="btn btn-secondary" data-placeholder="contact">
+            Collaborate / Contact
+          </a>
         </div>
 
-        <div class="grid-2">
-          <!-- Host a Server -->
-          <article class="support-card reveal">
-            <div>
-              <span class="support-badge" data-i18n="support.host.badge">Infrastructure</span>
-              <h3 data-i18n="support.host.title">Host a Community Node</h3>
-              <p data-i18n="support.host.desc">
-                More independent operators mean real multi-hop diversity and stronger failover. Deploy the unified Docker + Ktor + Caddy server bundle on Windows, Linux, or macOS.
-              </p>
-            </div>
-            <div class="support-actions">
-              <a
-                class="btn btn-primary btn-sm"
-                data-config-href="docsServerHostingUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-i18n="support.host.ctaPrimary"
-              >
-                Server Hosting Docs
-              </a>
-              <a
-                class="btn btn-secondary btn-sm"
-                data-config-href="docsServerOverviewUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-i18n="support.host.ctaSecondary"
-              >
-                Server Architecture
-              </a>
-            </div>
-          </article>
-
-          <!-- Buy Me a Coffee -->
-          <article class="support-card reveal">
-            <div>
-              <span class="support-badge" data-i18n="support.coffee.badge">Quick Support</span>
-              <h3 data-i18n="support.coffee.title">Buy Me a Coffee</h3>
-              <p data-i18n="support.coffee.desc">
-                Building a clean, independent messenger takes late nights and lots of espresso. Send a quick one-time thank-you to keep development moving.
-              </p>
-            </div>
-            <div class="support-actions">
-              <a
-                href="#coffee-placeholder"
-                class="btn btn-primary btn-sm"
-                data-placeholder="buyMeACoffee"
-                data-i18n="support.coffee.cta"
-              >
-                Buy Me a Coffee
-              </a>
-            </div>
-          </article>
-
-          <!-- Collaboration & Contact -->
-          <article class="support-card reveal">
-            <div>
-              <span class="support-badge" data-i18n="support.collab.badge">Collaboration</span>
-              <h3 data-i18n="support.collab.title">Collaborate & Contact</h3>
-              <p data-i18n="support.collab.desc">
-                Interested in Kotlin Multiplatform, cryptography, security reviews, translations, or running relay infrastructure? Reach out or open an issue.
-              </p>
-            </div>
-            <div class="support-actions">
-              <a
-                href="#contact-placeholder"
-                class="btn btn-primary btn-sm"
-                data-placeholder="contact"
-                data-i18n="support.collab.ctaEmail"
-              >
-                Contact / Email
-              </a>
-              <a
-                class="btn btn-secondary btn-sm"
-                data-config-href="githubIssuesUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-i18n="support.collab.ctaIssues"
-              >
-                GitHub Issues
-              </a>
-            </div>
-          </article>
-
-          <!-- Become a Supporter -->
-          <article class="support-card reveal">
-            <div>
-              <span class="support-badge" data-i18n="support.sponsor.badge">Sustaining Backer</span>
-              <h3 data-i18n="support.sponsor.title">Become a Supporter</h3>
-              <p data-i18n="support.sponsor.desc">
-                Support Sparrow financially on a recurring basis to help fund test infrastructure, servers, and an eventual independent security audit.
-              </p>
-            </div>
-            <div class="support-actions">
-              <a
-                href="#supporter-placeholder"
-                class="btn btn-primary btn-sm"
-                data-placeholder="supporter"
-                data-i18n="support.sponsor.cta"
-              >
-                Become a Supporter
-              </a>
-            </div>
-          </article>
+        <div class="stack-bar">
+          <a data-config-href="githubRepoUrl" target="_blank" rel="noopener noreferrer">Contribute Code</a>
+          <span>·</span>
+          <a data-config-href="githubIssuesUrl" target="_blank" rel="noopener noreferrer">Report Issues</a>
+          <span>·</span>
+          <a data-config-href="docsWhySparrowUrl" target="_blank" rel="noopener noreferrer">Security &amp; Threat Model</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="#top" class="brand">
-            <img src="./favicon.svg" alt="" class="brand-mark" width="30" height="30" />
-            <span>Sparrow</span>
-          </a>
-          <p data-i18n="footer.tagline">End-to-end encrypted messaging on a federated network.</p>
-        </div>
-
-        <div class="footer-col">
-          <h4 data-i18n="footer.linksTitle">Project</h4>
-          <ul>
-            <li><a data-config-href="githubRepoUrl" target="_blank" rel="noopener noreferrer" data-i18n="footer.linkGithub">GitHub Repository</a></li>
-            <li><a data-config-href="githubReleasesUrl" target="_blank" rel="noopener noreferrer" data-i18n="footer.linkReleases">Releases</a></li>
-            <li><a data-config-href="githubIssuesUrl" target="_blank" rel="noopener noreferrer" data-i18n="footer.linkIssues">Report a Bug</a></li>
-            <li><a data-config-href="websiteRepoUrl" target="_blank" rel="noopener noreferrer" data-i18n="footer.linkWebsiteRepo">Website Repo</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4 data-i18n="footer.docsTitle">Documentation</h4>
-          <ul>
-            <li><a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer" data-i18n="footer.docHome">Docs Home</a></li>
-            <li><a data-config-href="docsWhySparrowUrl" target="_blank" rel="noopener noreferrer" data-i18n="footer.docWhy">Why Sparrow?</a></li>
-            <li><a data-config-href="docsServerHostingUrl" target="_blank" rel="noopener noreferrer" data-i18n="footer.docServer">Host a Server</a></li>
-            <li><a data-config-href="docsTransportUrl" target="_blank" rel="noopener noreferrer" data-i18n="footer.docTransport">Transport Flow</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span data-i18n="footer.copyright">© 2026 Christian Bergmann · Sparrow</span>
-        <div class="lang-toggle" role="group" aria-label="Language switch">
-          <button type="button" class="lang-btn" data-lang="en">EN</button>
-          <button type="button" class="lang-btn" data-lang="de">DE</button>
-        </div>
+    <div class="container footer-inner">
+      <span>© 2026 Christian Bergmann · Sparrow</span>
+      <div class="footer-links">
+        <a data-config-href="githubRepoUrl" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer">Docs</a>
+        <a href="#contact-placeholder" data-placeholder="contact">Contact</a>
+        <a href="#supporter-placeholder" data-placeholder="supporter">Support</a>
       </div>
     </div>
   </footer>
 
-  <!-- Placeholder Dialog -->
   <div class="modal-backdrop" id="placeholder-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-card">
-      <span class="support-badge" data-i18n="modal.placeholderBadge">Configurable Placeholder</span>
       <h3 id="modal-title">Placeholder</h3>
       <p id="modal-body"></p>
       <div class="modal-actions">
-        <a
-          id="modal-secondary-link"
-          class="btn btn-secondary btn-sm"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="display: none;"
-        ></a>
-        <button type="button" class="btn btn-primary btn-sm" id="modal-close-btn" data-i18n="modal.close">Close</button>
+        <a id="modal-secondary-link" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer" style="display: none;"></a>
+        <button type="button" class="btn btn-primary btn-sm" id="modal-close-btn">Close</button>
       </div>
     </div>
   </div>
 
   <script type="module" src="./app.js"></script>
+  <script>
+    document.querySelectorAll(".copy-btn").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        await navigator.clipboard.writeText(btn.dataset.copy);
+        const orig = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(() => (btn.textContent = orig), 1500);
+      });
+    });
+  </script>
 </body>
 </html>
