@@ -330,9 +330,10 @@ export function mountOnionAnimation(canvas, getLabels) {
     ctx.fill();
 
     // Subtle status pill at bottom-left
+    const remaining = Math.max(1, hops - peeledCount);
     const layerLabel =
       peeledCount < hops
-        ? `${labels.layersRemaining}: ${Math.max(1, hops - peeledCount)} + E2EE`
+        ? `${labels.layersRemaining}: ${remaining}/${hops} + E2EE`
         : labels.e2eeLocked;
     ctx.fillStyle = "rgba(16, 42, 70, 0.85)";
     drawRoundedRect(14, h - 38, Math.min(230, w - 28), 26, 13);
