@@ -93,7 +93,7 @@
         </p>
 
         <div class="hero-actions">
-          <a href="#beta-placeholder" class="btn btn-primary" data-placeholder="betaTest" data-i18n="hero.ctaBeta">
+          <a class="btn btn-primary" data-placeholder="betaTest" aria-disabled="true" tabindex="-1" data-i18n="hero.ctaBeta">
             Join Beta Test
           </a>
           <a class="btn btn-secondary" data-config-href="githubReleasesUrl" target="_blank" rel="noopener noreferrer" data-i18n="hero.ctaDownload">
@@ -246,7 +246,7 @@ SPARROW_CONTROL_PLANES=https://sparrow-messenger.org</code></pre>
         </div>
 
         <div class="hero-actions" style="justify-content: flex-start; margin-bottom: 2.25rem;">
-          <a href="#beta-placeholder" class="btn btn-primary" data-placeholder="betaTest" data-i18n="beta.ctaBeta">
+          <a class="btn btn-primary" data-placeholder="betaTest" aria-disabled="true" tabindex="-1" data-i18n="beta.ctaBeta">
             Join Beta Test
           </a>
           <a class="btn btn-secondary" data-config-href="githubReleasesUrl" target="_blank" rel="noopener noreferrer" data-i18n="beta.ctaReleases">
@@ -276,11 +276,11 @@ SPARROW_CONTROL_PLANES=https://sparrow-messenger.org</code></pre>
         </p>
 
         <div class="hero-actions" style="margin-bottom: 1.5rem;">
-          <a href="#supporter-placeholder" class="btn btn-primary" data-placeholder="supporter" data-i18n="support.actions.sponsor">
+          <a class="btn btn-primary" data-placeholder="supporter" aria-disabled="true" tabindex="-1" data-i18n="support.actions.sponsor">
             Become a Supporter
           </a>
-          <a href="#coffee-placeholder" class="btn btn-secondary" data-placeholder="buyMeACoffee" data-i18n="support.actions.coffee">
-            Buy Me a Coffee
+          <a class="btn btn-secondary" data-config-href="paypalUrl" data-i18n="support.actions.donation">
+            Donate via PayPal
           </a>
           <a href="#contact-placeholder" class="btn btn-secondary" data-placeholder="contact" data-i18n="support.actions.contact">
             Collaborate / Contact
@@ -305,7 +305,7 @@ SPARROW_CONTROL_PLANES=https://sparrow-messenger.org</code></pre>
         <a data-config-href="githubRepoUrl" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer" data-i18n="nav.docs">Docs</a>
         <a href="#contact-placeholder" data-placeholder="contact" data-i18n="footer.contact">Contact</a>
-        <a href="#supporter-placeholder" data-placeholder="supporter" data-i18n="nav.support">Support</a>
+        <a href="#support" data-i18n="nav.support">Support</a>
       </div>
     </div>
   </footer>
@@ -316,6 +316,7 @@ SPARROW_CONTROL_PLANES=https://sparrow-messenger.org</code></pre>
       <p id="modal-body"></p>
       <div class="modal-actions">
         <a id="modal-secondary-link" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer" style="display: none;"></a>
+        <button type="button" class="btn btn-secondary btn-sm" id="modal-copy-email" data-i18n="modal.copyEmail" style="display: none;">Copy email</button>
         <button type="button" class="btn btn-primary btn-sm" id="modal-close-btn" data-i18n="modal.close">Close</button>
       </div>
     </div>

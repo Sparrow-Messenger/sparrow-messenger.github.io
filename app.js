@@ -65,12 +65,24 @@ function wireConfigLinks() {
     const entry = SPARROW_CONFIG[key];
     if (!entry) return;
 
-    if (!entry.isPlaceholder && entry.url) {
-      el.setAttribute("href", entry.url);
-      if (entry.url.startsWith("http")) {
-        el.setAttribute("target", "_blank");
-        el.setAttribute("rel", "noopener noreferrer");
-      }
+    if (entry.isPlaceholder) {
+      el.removeAttribute("href");
+      el.setAttribute("aria-disabled", "true");
+      el.setAttribute("tabindex", "-1");
+      return;
+    }
+
+    if (!entry.url) return;
+
+    el.setAttribute("href", entry.url);
+    el.removeAttribute("aria-disabled");
+    el.removeAttribute("tabindex");
+    if (entry.url.startsWith("http")) {
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener noreferrer");
+    } else {
+      el.removeAttribute("target");
+      el.removeAttribute("rel");
     }
   });
 }
@@ -196,12 +208,22 @@ const modal = document.getElementById("placeholder-modal");
 const modalTitle = document.getElementById("modal-title");
 const modalBody = document.getElementById("modal-body");
 const modalSecondary = document.getElementById("modal-secondary-link");
+const modalCopyEmail = document.getElementById("modal-copy-email");
 const modalClose = document.getElementById("modal-close-btn");
 let activePlaceholderType = null;
+
+modalCopyEmail.addEventListener("click", async () => {
+  await navigator.clipboard.writeText(SPARROW_CONFIG.contact.email);
+  modalCopyEmail.textContent = TRANSLATIONS[currentLang].modal.emailCopied;
+  setTimeout(() => {
+    modalCopyEmail.textContent = TRANSLATIONS[currentLang].modal.copyEmail;
+  }, 1500);
+});
 
 function renderPlaceholderModal(type) {
   const m = TRANSLATIONS[currentLang].modal;
   modalSecondary.style.display = "none";
+  modalCopyEmail.style.display = "none";
 
   if (type === "betaTest") {
     modalTitle.textContent = m.betaTitle;
@@ -209,18 +231,17 @@ function renderPlaceholderModal(type) {
     modalSecondary.textContent = m.betaAction;
     modalSecondary.href = SPARROW_CONFIG.githubReleasesUrl;
     modalSecondary.style.display = "inline-flex";
-  } else if (type === "buyMeACoffee") {
-    modalTitle.textContent = m.coffeeTitle;
-    modalBody.textContent = m.coffeeBody;
   } else if (type === "supporter") {
     modalTitle.textContent = m.supporterTitle;
     modalBody.textContent = m.supporterBody;
   } else if (type === "contact") {
     modalTitle.textContent = m.contactTitle;
-    modalBody.textContent = m.contactBody;
+    modalBody.textContent = m.contactBody.replace("{email}", SPARROW_CONFIG.contact.email);
     modalSecondary.textContent = m.contactAction;
-    modalSecondary.href = SPARROW_CONFIG.githubIssuesUrl;
+    modalSecondary.href = SPARROW_CONFIG.contact.url;
     modalSecondary.style.display = "inline-flex";
+    modalCopyEmail.textContent = m.copyEmail;
+    modalCopyEmail.style.display = "inline-flex";
   }
 }
 
@@ -239,8 +260,7 @@ function closePlaceholderModal() {
 document.querySelectorAll("[data-placeholder]").forEach((el) => {
   el.addEventListener("click", (e) => {
     const key = el.getAttribute("data-placeholder");
-    const entry = SPARROW_CONFIG[key];
-    if (entry && entry.isPlaceholder) {
+    if (key === "contact") {
       e.preventDefault();
       openPlaceholderModal(key);
     }

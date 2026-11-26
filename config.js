@@ -17,22 +17,20 @@ export const SPARROW_CONFIG = {
   youtubeVideoUrl: "https://youtu.be/olWN2dFN11Y?si=si3Jy6sL2xDPxl-F",
   youtubeVideoId: "olWN2dFN11Y",
 
+  paypalUrl: "https://paypal.me/berches",
+  contact: {
+    email: "contact-sparrow-messenger@proton.me",
+    url: "mailto:contact-sparrow-messenger@proton.me",
+    isPlaceholder: false
+  },
+
   // Placeholder links — update these with your real URLs when ready
   betaTest: {
     url: "#beta-placeholder",
     isPlaceholder: true
   },
-  buyMeACoffee: {
-    url: "#coffee-placeholder",
-    isPlaceholder: true
-  },
   supporter: {
     url: "#supporter-placeholder",
-    isPlaceholder: true
-  },
-  contact: {
-    email: "contact@sparrow-messenger.example",
-    url: "https://github.com/cbgm/Sparrow/issues",
     isPlaceholder: true
   }
 };

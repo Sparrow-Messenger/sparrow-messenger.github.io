@@ -184,7 +184,7 @@ export const TRANSLATIONS = {
         "Sparrow is independent, open-source software built without ads, tracking, or venture lock-in. Your support funds test servers, development, and an upcoming third-party security audit.",
       actions: {
         sponsor: "Become a Supporter",
-        coffee: "Buy Me a Coffee",
+        donation: "Donate via PayPal",
         contact: "Collaborate / Contact"
       },
       links: {
@@ -198,12 +198,6 @@ export const TRANSLATIONS = {
         desc: "More independent operators mean real multi-hop diversity and stronger failover. Deploy the unified Docker + Ktor + Caddy server bundle on Windows, Linux, or macOS.",
         ctaPrimary: "Server Hosting Docs",
         ctaSecondary: "Server Architecture"
-      },
-      coffee: {
-        badge: "Quick Support",
-        title: "Buy Me a Coffee",
-        desc: "Building a clean, independent messenger takes late nights and lots of espresso. Send a quick one-time thank-you to keep development moving.",
-        cta: "Buy Me a Coffee"
       },
       collab: {
         badge: "Collaboration",
@@ -241,16 +235,14 @@ export const TRANSLATIONS = {
       betaBody:
         "This button is ready for your beta signup or distribution URL (e.g. Google Play Closed Testing, Firebase App Distribution, or a registration form). Update SPARROW_CONFIG.betaTest in config.js when ready — or grab the latest APK directly from GitHub Releases.",
       betaAction: "Open GitHub Releases",
-      coffeeTitle: "Buy Me a Coffee Placeholder",
-      coffeeBody:
-        "Add your Buy Me a Coffee, Ko-fi, or PayPal link inside SPARROW_CONFIG.buyMeACoffee in config.js to connect this button.",
       supporterTitle: "Supporter / Sponsorship Placeholder",
       supporterBody:
         "Add your GitHub Sponsors, Liberapay, Patreon, or Open Collective URL inside SPARROW_CONFIG.supporter in config.js.",
-      contactTitle: "Collaboration Contact Placeholder",
-      contactBody:
-        "Set your preferred contact email or Matrix/chat handle inside SPARROW_CONFIG.contact in config.js, or direct collaborators to GitHub Issues.",
-      contactAction: "GitHub Issues"
+      contactTitle: "Contact Sparrow",
+      contactBody: "Email Sparrow at {email}. If your email app doesn't open, copy the address.",
+      contactAction: "Open email app",
+      copyEmail: "Copy email address",
+      emailCopied: "Email address copied"
     },
     common: {
       copy: "Copy",
@@ -445,7 +437,7 @@ export const TRANSLATIONS = {
         "Sparrow ist unabhängige Open-Source-Software ohne Werbung, Tracking oder Investorenbindung. Deine Unterstützung finanziert Testserver, Entwicklung und ein geplantes unabhängiges Sicherheitsaudit.",
       actions: {
         sponsor: "Supporter werden",
-        coffee: "Buy Me a Coffee",
+        donation: "Mit PayPal spenden",
         contact: "Mitwirken / Kontakt"
       },
       links: {
@@ -459,12 +451,6 @@ export const TRANSLATIONS = {
         desc: "Mehr unabhängige Betreiber sorgen für echte Multi-Hop-Vielfalt und Ausfallsicherheit. Starte das fertige Docker- + Ktor- + Caddy-Serverpaket auf Windows, Linux oder macOS.",
         ctaPrimary: "Server-Anleitung (Docs)",
         ctaSecondary: "Server-Architektur"
-      },
-      coffee: {
-        badge: "Kleine Geste",
-        title: "Buy Me a Coffee",
-        desc: "Die Entwicklung eines unabhängigen Messengers kostet unzählige Abende und viel Kaffee. Mit einem kleinen Beitrag unterstützt du die Weiterentwicklung direkt.",
-        cta: "Buy Me a Coffee"
       },
       collab: {
         badge: "Zusammenarbeit",
@@ -502,16 +488,15 @@ export const TRANSLATIONS = {
       betaBody:
         "Dieser Button ist für deinen Beta-Anmelde- oder Test-Link vorbereitet (z. B. Google Play Closed Testing, Firebase App Distribution oder ein Formular). Trage die URL in config.js unter SPARROW_CONFIG.betaTest ein – oder lade die APK direkt über GitHub Releases.",
       betaAction: "GitHub Releases öffnen",
-      coffeeTitle: "Platzhalter für Buy Me a Coffee",
-      coffeeBody:
-        "Hinterlege deinen Link zu Buy Me a Coffee, Ko-fi oder PayPal in config.js unter SPARROW_CONFIG.buyMeACoffee, um diesen Button direkt zu verknüpfen.",
       supporterTitle: "Platzhalter für Supporter-Link",
       supporterBody:
         "Hinterlege deine URL zu GitHub Sponsors, Liberapay, Patreon oder Open Collective in config.js unter SPARROW_CONFIG.supporter.",
-      contactTitle: "Platzhalter für Kontakt-Link",
+      contactTitle: "Sparrow kontaktieren",
       contactBody:
-        "Trage deine gewünschte Kontakt-E-Mail oder Adresse in config.js unter SPARROW_CONFIG.contact ein oder leite Mitwirkende direkt zu GitHub Issues.",
-      contactAction: "GitHub-Issues"
+        "Schreibe an {email}. Falls sich kein E-Mail-Programm öffnet, kannst du die Adresse kopieren.",
+      contactAction: "E-Mail-App öffnen",
+      copyEmail: "E-Mail-Adresse kopieren",
+      emailCopied: "E-Mail-Adresse kopiert"
     },
     common: {
       copy: "Kopieren",

@@ -11,12 +11,12 @@ Static bilingual (English & German) website for [Sparrow](https://github.com/cbg
 - **Privacy-Friendly Product Video**: Uses a click-to-load `youtube-nocookie.com` facade alongside a direct YouTube link.
 - **Zero Build Required**: Plain HTML5, CSS3, and ES modules.
 
-## Configuring Placeholder Links
+## Configuring Links
 
-Edit [`config.js`](config.js) to replace the placeholder links before publishing:
+Edit [`config.js`](config.js) to update project links:
 
 - `betaTest`: Beta signup or distribution URL (change `isPlaceholder: false`)
-- `buyMeACoffee`: Your Buy Me a Coffee / Ko-fi URL (`isPlaceholder: false`)
+- `paypalUrl`: PayPal.Me URL for the donation button
 - `supporter`: Your GitHub Sponsors / Liberapay / recurring support URL (`isPlaceholder: false`)
 - `contact`: Your collaboration email (`mailto:...`) or contact page (`isPlaceholder: false`)
 

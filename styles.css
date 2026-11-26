@@ -268,6 +268,26 @@ h1 {
   color: var(--primary);
 }
 
+a[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn[aria-disabled="true"] {
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-primary[aria-disabled="true"]:hover {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.btn-secondary[aria-disabled="true"]:hover {
+  border-color: var(--outline-variant);
+  color: var(--text);
+}
+
 .stack-bar {
   display: flex;
   flex-wrap: wrap;
