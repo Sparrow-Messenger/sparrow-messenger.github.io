@@ -15,7 +15,6 @@ Static bilingual (English & German) website for [Sparrow](https://github.com/cbg
 
 Edit [`config.js`](config.js) to update project links:
 
-- `betaTest`: Beta signup or distribution URL (change `isPlaceholder: false`)
 - `paypalUrl`: PayPal.Me URL for the donation button
 - `supporter`: Your GitHub Sponsors / Liberapay / recurring support URL (`isPlaceholder: false`)
 - `contact`: Your collaboration email (`mailto:...`) or contact page (`isPlaceholder: false`)

@@ -1,44 +1,41 @@
 export const TRANSLATIONS = {
   en: {
-    pageTitle: "Sparrow — Messages that leave no trail",
+    pageTitle: "Sparrow — Your messages stay private",
     metaDescription:
-      "End-to-end encrypted messaging with a federated, independently hostable transport network built with Kotlin Multiplatform.",
+      "A private messenger for Android. Messages are protected on your phone and delivered by servers run by different communities.",
     nav: {
-      features: "Features",
-      transport: "Transport",
-      hostServer: "Host a Server",
-      docs: "Docs",
+      features: "What Sparrow does",
+      transport: "How it works",
+      docs: "Documentation",
       home: "Sparrow Home",
       mainNavigation: "Main navigation",
       mobileNavigation: "Mobile navigation",
       languageSwitch: "Language switch",
       toggleNavigation: "Toggle navigation",
       howItWorks: "How it works",
-      video: "Video",
-      beta: "Android Beta",
-      support: "Support",
+      preview: "Introduction",
+      contribute: "Contribute",
       github: "GitHub"
     },
     hero: {
-      badge: "Public Beta · v1.0.0-beta.1 · Android",
-      title: "Messages that leave no trail.",
-      logoAria: "Interactive Sparrow Logo",
+      title: "Your messages stay private.",
+      logoAria: "Sparrow logo",
       subtitle:
-        "End-to-end encrypted messaging built with Kotlin Multiplatform and a federated, independently hostable network of Community Nodes — so no single server or operator controls your communication.",
-      ctaBeta: "Join Beta Test",
-      ctaDownload: "Download APK →",
+        "Sparrow protects your messages on your phone before they’re sent. Independent communities can help deliver them, so one company doesn’t have to run the whole service.",
+      ctaBeta: "Request beta access",
+      ctaHowItWorks: "See how messages travel",
       ctaGithub: "View on GitHub",
       ctaVideo: "Watch product video",
       replayBtn: "Replay flight",
-      sendHint: "Click Sparrow to pulse",
-      pillCrypto: "libsodium E2EE",
-      pillOnion: "1–5 Hop Onion Circuits",
-      pillFederated: "Self-Hostable Nodes",
+      sendHint: "Click the Sparrow logo",
+      pillCrypto: "Messages protected on your phone",
+      pillOnion: "Several stops along the way",
+      pillFederated: "Run by different communities",
       stack: {
-        crypto: "libsodium E2EE",
-        onion: "1–5 Hop Onion",
-        mailboxes: "256 KiB Padded Mailboxes",
-        kotlin: "Kotlin Multiplatform"
+        crypto: "Protected on your phone",
+        onion: "Passed through several stops",
+        mailboxes: "Waits in the recipient’s inbox",
+        kotlin: "Android app"
       }
     },
     about: {
@@ -93,128 +90,106 @@ export const TRANSLATIONS = {
       docsLink: "Read “What makes Sparrow different?”"
     },
     comm: {
-      eyebrow: "01 / Zero-Metadata Transport",
-      title: "Wrapped in layers. Delivered blind.",
+      eyebrow: "02 / How it works",
+      title: "Your message is protected before it leaves your phone.",
       lead:
-        "Every message stays encrypted end-to-end on your device, travels through relays of different operators, and lands in a recipient-selected mailbox.",
-      hopsLabel: "Hops:",
-      relayHops: "Relay hops",
-      decoysLabel: "Decoy traffic",
+        "Your phone locks each message before sending it. Servers pass it along without reading it, and it waits in the recipient’s inbox until they’re ready.",
+      hopsLabel: "Stops:",
+      relayHops: "Number of stops",
+      decoysLabel: "Send extra messages for privacy",
       play: "Play",
       pause: "Pause",
       canvasLabels: {
         you: "You",
-        homeNode: "Home Node",
-        relay: "Relay",
-        mailbox: "Mailbox Node",
-        controlPlane: "Control Plane (2-hop discovery)",
-        decoy: "Decoy",
-        layersRemaining: "Onion layers",
-        e2eeLocked: "E2EE envelope stored"
+        homeNode: "First stop",
+        relay: "Next stop",
+        mailbox: "Recipient’s inbox",
+        controlPlane: "Server list",
+        community: "Community",
+        decoy: "Extra message",
+        layersRemaining: "Stops left",
+        e2eeLocked: "Message stays locked"
       },
       steps: [
         {
-          title: "01. Seal & Pad",
-          desc: "Device encrypts & pads to fixed 1–256 KiB classes."
+          title: "01. Protect your message",
+          desc: "Your phone locks the message so only people in the chat can read it."
         },
         {
-          title: "02. Onion Hops",
-          desc: "Each relay peels one layer and knows only the next hop."
+          title: "02. Pass it along",
+          desc: "The computers that pass it along can’t read what it says."
         },
         {
-          title: "03. Dead-Drop",
-          desc: "Stored in recipient mailbox with zero sender/recipient IDs."
+          title: "03. Wait in their inbox",
+          desc: "The recipient can collect it when they’re ready."
         },
         {
-          title: "04. Failover",
-          desc: "Signed Control Planes route around offline nodes."
+          title: "04. Find another route",
+          desc: "If one of those computers isn’t available, Sparrow can use another way."
         }
       ],
-      docsLink: "Explore transport architecture in the docs"
+      docsLink: "Learn more about how messages travel"
     },
     hosting: {
-      eyebrow: "02 / Federation",
-      title: "Host a Community Node",
+      title: "Help run a Sparrow server",
       lead:
-        "Every independent relay and mailbox operator strengthens circuit diversity. Deploy the unified Ktor + Caddy Docker stack on any Linux, macOS, or Windows host with ports 80 and 443 open.",
-      cloneTitle: "Clone the Server Bundle",
-      configureTitle: "Configure Your Node",
-      buildTitle: "Build & Launch",
-      verifyTitle: "Verify Your Endpoint",
-      terminal: "Terminal",
+        "If you know your way around setting up computers, you can run a server that forwards messages. Each independently run server gives the network another place to deliver messages. This is optional; most people can use Sparrow on Android without running one.",
+      cloneTitle: "Get the server files",
+      configureTitle: "Set up your server",
+      buildTitle: "Start the server",
+      verifyTitle: "Check that it’s working",
+      terminal: "Commands",
       configureNoteBefore: "Copy ",
       configureNoteMiddle: " to ",
-      configureNoteAfter: " and set your public domain so Caddy can automatically provision TLS certificates.",
-      buildNote: "Starts the Ktor relay/mailbox service alongside Caddy reverse proxy in the background.",
-      verifyNoteBefore: "Returns ",
-      verifyNoteAfter: " with your live gateway, federation, and mailbox status page.",
-      docsLink: "Read full hosting docs →"
+      configureNoteAfter: " and enter the web address for your server. The secure connection will be set up automatically.",
+      buildNote: "This starts the programs that deliver messages and keep the connection secure.",
+      verifyNoteBefore: "If everything is working, you’ll see ",
+      verifyNoteAfter: ". That means your server is responding.",
+      docsLink: "Read the server setup guide →"
     },
     video: {
-      eyebrow: "Product Video",
+      eyebrow: "01 / Introduction",
       title: "See Sparrow in action",
       lead:
-        "A walkthrough of Sparrow’s Android beta, onboarding tour, encrypted messaging, and onion-routed transport.",
-      iframeTitle: "Sparrow Product Video",
-      posterBadge: "Sparrow 1.0 Beta Walkthrough",
-      posterTitle: "Watch the 1.0 Beta Walkthrough",
+        "See how Sparrow works on Android and explore its messaging features, from writing and sending a message to receiving one.",
+      iframeTitle: "Sparrow video",
+      posterBadge: "Sparrow Android video",
+      posterTitle: "See how Sparrow works",
       posterSubtitle:
-        "Privacy-enhanced YouTube embed (loads only when clicked).",
-      playBtn: "▶ Load & Play Video",
+        "The video loads only after you press play.",
+      playBtn: "▶ Play the video",
       watchExternal: "Watch on YouTube"
     },
-    beta: {
-      eyebrow: "Beta Testing",
-      title: "Try the Android Beta",
+    contribute: {
+      eyebrow: "03 / Contribute",
+      title: "Contribute",
       lead:
-        "Sparrow 1.0.0-beta.1 is available for Android (API 29+). Test federated messaging, try out multi-hop onion circuits, and help shape the 1.0 release.",
-      note: "Beta tip: Keep an encrypted identity backup (Settings → Identity) so you can restore your keys across updates.",
-      deviceNoteBefore:
-        "Available for Android 10+ (API 29). Keys are generated strictly on your device—back them up under ",
-      identityPath: "Settings → Identity",
-      deviceNoteAfter: " to restore across beta releases.",
-      ctaBeta: "Join Beta Test (Placeholder)",
-      ctaReleases: "GitHub Releases (APK)",
-      placeholderTag: "Placeholder link · configure in config.js"
-    },
-    support: {
-      eyebrow: "04 / Community",
-      title: "Support the Project",
-      lead:
-        "Sparrow is independent, open-source software built without ads, tracking, or venture lock-in. Your support funds test servers, development, and an upcoming third-party security audit.",
+        "Sparrow is built in the open, and its future depends on people taking part. You don’t need to be a developer to help: you can run a server, improve the app, test new changes, or help cover project costs. Choose what fits your skills and time.",
+      impactTitle: "What your contribution makes possible",
+      impactLead:
+        "More independently run servers give people more choices for message delivery. Code contributions and testing help improve the app, while financial support helps pay for test servers, development, and an independent security review. Every kind of help supports a more resilient, community-run messenger.",
+      developersTitle: "Code contributions",
+      developersLead:
+        "Sparrow’s app and server code are public on GitHub. Developers can learn how the project works, fix problems, or suggest improvements. Browse the repository and open issues to see what the project is working on. If you’re unsure where to start, ask a question before tackling a larger change.",
+      supportTitle: "Support the project",
+      supportLead:
+        "Donations help pay for test servers and development, and can help fund an independent security review. This is a separate way to help from contributing code, and donations support the project’s ongoing work.",
+      communityTitle: "Community",
+      communityLead:
+        "You can help without writing code or running a server. Share your experience, ask questions, or report problems so we can learn what is confusing and what needs improvement. Use the contact button or report an issue on GitHub.",
       actions: {
-        sponsor: "Become a Supporter",
-        donation: "Donate via PayPal",
-        contact: "Collaborate / Contact"
+        sponsor: "Support Sparrow",
+        contributeCode: "Contribute code",
+        donation: "Donate with PayPal",
+        contact: "Get in touch"
       },
       links: {
-        contributeCode: "Contribute Code",
-        reportIssues: "Report Issues",
-        security: "Security & Threat Model"
-      },
-      host: {
-        badge: "Infrastructure",
-        title: "Host a Community Node",
-        desc: "More independent operators mean real multi-hop diversity and stronger failover. Deploy the unified Docker + Ktor + Caddy server bundle on Windows, Linux, or macOS.",
-        ctaPrimary: "Server Hosting Docs",
-        ctaSecondary: "Server Architecture"
-      },
-      collab: {
-        badge: "Collaboration",
-        title: "Collaborate & Contact",
-        desc: "Interested in Kotlin Multiplatform, cryptography, security reviews, translations, or running relay infrastructure? Reach out or open an issue.",
-        ctaEmail: "Contact / Email",
-        ctaIssues: "GitHub Issues"
-      },
-      sponsor: {
-        badge: "Sustaining Backer",
-        title: "Become a Supporter",
-        desc: "Support Sparrow financially on a recurring basis to help fund test infrastructure, servers, and an eventual independent security audit.",
-        cta: "Become a Supporter"
+        reportIssues: "Ask a question or report a problem",
+        security: "How Sparrow protects your privacy"
       }
     },
     footer: {
-      tagline: "End-to-end encrypted messaging on a federated network.",
+      tagline: "Private chats, delivered by servers run by different communities.",
       copyright: "© 2026 Christian Bergmann · Sparrow",
       contact: "Contact",
       linksTitle: "Project",
@@ -231,64 +206,57 @@ export const TRANSLATIONS = {
     modal: {
       close: "Close",
       placeholderBadge: "Configurable Placeholder",
-      betaTitle: "Beta Test Link Placeholder",
-      betaBody:
-        "This button is ready for your beta signup or distribution URL (e.g. Google Play Closed Testing, Firebase App Distribution, or a registration form). Update SPARROW_CONFIG.betaTest in config.js when ready — or grab the latest APK directly from GitHub Releases.",
-      betaAction: "Open GitHub Releases",
       supporterTitle: "Supporter / Sponsorship Placeholder",
       supporterBody:
         "Add your GitHub Sponsors, Liberapay, Patreon, or Open Collective URL inside SPARROW_CONFIG.supporter in config.js.",
-      contactTitle: "Contact Sparrow",
-      contactBody: "Email Sparrow at {email}. If your email app doesn't open, copy the address.",
+      contactTitle: "Get in touch",
+      contactBody: "Email us at {email}. If your email app doesn’t open, copy the address.",
       contactAction: "Open email app",
       copyEmail: "Copy email address",
       emailCopied: "Email address copied"
     },
     common: {
-      copy: "Copy",
+      copy: "Copy command",
       copied: "Copied!"
     }
   },
   de: {
-    pageTitle: "Sparrow — Nachrichten, die keine Spur hinterlassen",
+    pageTitle: "Sparrow — Deine Nachrichten bleiben privat",
     metaDescription:
-      "Ende-zu-Ende-verschlüsselter Messenger auf einem föderierten, selbst hostbaren Netzwerk aus Kotlin Multiplatform und Ktor.",
+      "Ein privater Messenger für Android. Nachrichten werden auf deinem Handy geschützt und über Server unabhängiger Gemeinschaften zugestellt.",
     nav: {
-      features: "Funktionen",
-      transport: "Transport",
-      hostServer: "Server hosten",
+      features: "Das kann Sparrow",
+      transport: "So funktioniert’s",
       docs: "Dokumentation",
       home: "Sparrow-Startseite",
       mainNavigation: "Hauptnavigation",
       mobileNavigation: "Mobile Navigation",
       languageSwitch: "Sprachauswahl",
       toggleNavigation: "Navigation umschalten",
-      howItWorks: "Funktionsweise",
-      video: "Video",
-      beta: "Android-Beta",
-      support: "Unterstützen",
+      howItWorks: "So funktioniert’s",
+      preview: "Einführung",
+      contribute: "Beitragen",
       github: "GitHub"
     },
     hero: {
-      badge: "Öffentliche Beta · v1.0.0-beta.1 · Android",
-      title: "Nachrichten, die keine Spur hinterlassen.",
-      logoAria: "Interaktives Sparrow-Logo",
+      title: "Deine Nachrichten bleiben privat.",
+      logoAria: "Sparrow-Logo",
       subtitle:
-        "Ende-zu-Ende-verschlüsseltes Messaging mit Kotlin Multiplatform und einem föderierten, unabhängig betreibbaren Netzwerk aus Community Nodes – ohne Abhängigkeit von einem einzelnen Betreiber.",
-      ctaBeta: "Am Beta-Test teilnehmen",
-      ctaDownload: "APK herunterladen →",
+        "Sparrow schützt deine Nachrichten auf deinem Handy, bevor du sie sendest. Unabhängige Gemeinschaften können bei der Zustellung helfen – so muss nicht ein einzelnes Unternehmen den ganzen Dienst betreiben.",
+      ctaBeta: "Beta-Zugang anfragen",
+      ctaHowItWorks: "So kommen Nachrichten an",
       ctaGithub: "Auf GitHub ansehen",
       ctaVideo: "Produktvideo ansehen",
       replayBtn: "Anflug wiederholen",
-      sendHint: "Klicke auf Sparrow",
-      pillCrypto: "libsodium E2EE",
-      pillOnion: "1–5 Hop Onion-Circuits",
-      pillFederated: "Selbst hostbare Nodes",
+      sendHint: "Klicke auf das Sparrow-Logo",
+      pillCrypto: "Nachrichten auf dem Handy geschützt",
+      pillOnion: "Mehrere Stationen auf dem Weg",
+      pillFederated: "Von verschiedenen Gemeinschaften betrieben",
       stack: {
-        crypto: "libsodium E2EE",
-        onion: "1–5-Hop-Onion-Routing",
-        mailboxes: "256-KiB-Postfächer mit Padding",
-        kotlin: "Kotlin Multiplatform"
+        crypto: "Auf deinem Handy geschützt",
+        onion: "Über mehrere Stationen weitergeleitet",
+        mailboxes: "Wartet im Postfach",
+        kotlin: "Android-App"
       }
     },
     about: {
@@ -343,131 +311,109 @@ export const TRANSLATIONS = {
       docsLink: "„What makes Sparrow different?“ lesen"
     },
     comm: {
-      eyebrow: "01 / Metadatensparender Transport",
-      title: "In Schichten verpackt. Blind zugestellt.",
+      eyebrow: "02 / So kommen Nachrichten an",
+      title: "Dein Handy schützt die Nachricht, bevor sie es verlässt.",
       lead:
-        "Jede Nachricht bleibt Ende-zu-Ende-verschlüsselt auf deinem Gerät, wandert durch Relays verschiedener Betreiber und landet in einer vom Empfänger gewählten Mailbox.",
-      hopsLabel: "Hops:",
-      relayHops: "Relay-Hops",
-      decoysLabel: "Tarnverkehr",
+        "Dein Handy schützt die Nachricht, bevor du sie sendest. Server leiten sie weiter, ohne sie lesen zu können. Im Postfach wartet sie, bis die andere Person sie abruft.",
+      hopsLabel: "Stationen:",
+      relayHops: "Anzahl der Stationen",
+      decoysLabel: "Zusätzliche Nachrichten für mehr Privatsphäre",
       play: "Start",
       pause: "Pause",
       canvasLabels: {
         you: "Du",
-        homeNode: "Heimknoten",
-        relay: "Relay",
-        mailbox: "Mailbox-Knoten",
-        controlPlane: "Steuerung (2-Hop-Suche)",
-        decoy: "Tarnpaket",
-        layersRemaining: "Onion-Schichten",
-        e2eeLocked: "E2EE-Paket gespeichert"
+        homeNode: "Erster Halt",
+        relay: "Nächster Halt",
+        mailbox: "Postfach der empfangenden Person",
+        controlPlane: "Serverliste",
+        community: "Gemeinschaft",
+        decoy: "Zusatznachricht",
+        layersRemaining: "Stationen übrig",
+        e2eeLocked: "Nachricht bleibt geschützt"
       },
       steps: [
         {
-          title: "01. Verschlüsseln & Padding",
-          desc: "Das Gerät verschlüsselt Nachrichten und füllt sie auf feste Größenklassen von 1–256 KiB auf."
+          title: "01. Nachricht schützen",
+          desc: "Dein Handy schützt die Nachricht, damit nur die Chat-Teilnehmenden sie lesen können."
         },
         {
-          title: "02. Onion-Hops",
-          desc: "Jedes Relay entfernt eine Schicht und kennt nur den nächsten Hop."
+          title: "02. Weiterleiten",
+          desc: "Die Computer, die sie weiterleiten, können nicht lesen, was darin steht."
         },
         {
-          title: "03. Offline-Postfach",
-          desc: "Wird ohne Absender- oder Empfänger-ID im Postfach gespeichert."
+          title: "03. Im Postfach warten",
+          desc: "Die andere Person kann die Nachricht abrufen, wenn es passt."
         },
         {
-          title: "04. Failover",
-          desc: "Signierte Steuerungsebenen umgehen ausgefallene Knoten."
+          title: "04. Einen anderen Weg finden",
+          desc: "Wenn einer dieser Computer nicht verfügbar ist, kann Sparrow einen anderen Weg nehmen."
         }
       ],
-      docsLink: "Transport-Architektur in den Docs ansehen"
+      docsLink: "Mehr über den Weg einer Nachricht erfahren"
     },
     hosting: {
-      eyebrow: "02 / Föderation",
-      title: "Einen Community-Node hosten",
+      title: "Einen Sparrow-Server mitbetreiben",
       lead:
-        "Jeder unabhängige Relay- und Mailbox-Betreiber stärkt die Vielfalt der Circuits. Betreibe den kombinierten Ktor- und Caddy-Docker-Stack auf einem Linux-, macOS- oder Windows-Host mit geöffneten Ports 80 und 443.",
-      cloneTitle: "Server-Paket klonen",
-      configureTitle: "Node konfigurieren",
-      buildTitle: "Erstellen & starten",
-      verifyTitle: "Endpunkt prüfen",
-      terminal: "Terminal",
+        "Wenn du dich mit der Einrichtung von Computern auskennst, kannst du einen Server betreiben, der Nachrichten weiterleitet. Jeder unabhängig betriebene Server bietet dem Netzwerk einen weiteren Ort für die Zustellung. Das ist freiwillig – die meisten können Sparrow einfach auf Android nutzen.",
+      cloneTitle: "Server-Dateien herunterladen",
+      configureTitle: "Server einrichten",
+      buildTitle: "Server starten",
+      verifyTitle: "Prüfen, ob alles läuft",
+      terminal: "Befehle",
       configureNoteBefore: "Kopiere ",
       configureNoteMiddle: " nach ",
       configureNoteAfter:
-        " und trage deine öffentliche Domain ein, damit Caddy automatisch TLS-Zertifikate ausstellen kann.",
+        " und trage die Internetadresse deines Servers ein. Die sichere Verbindung wird automatisch eingerichtet.",
       buildNote:
-        "Startet den Ktor-Relay-/Mailbox-Dienst zusammen mit dem Caddy-Reverse-Proxy im Hintergrund.",
-      verifyNoteBefore: "Liefert ",
+        "Damit startest du die Programme, die Nachrichten weiterleiten und die Verbindung sichern.",
+      verifyNoteBefore: "Wenn alles funktioniert, erscheint ",
       verifyNoteAfter:
-        " sowie den Status deiner aktiven Gateway-, Föderations- und Mailbox-Dienste zurück.",
-      docsLink: "Vollständige Hosting-Dokumentation lesen →"
+        ". Das bedeutet, dass dein Server erreichbar ist.",
+      docsLink: "Anleitung zum Einrichten eines Servers lesen →"
     },
     video: {
-      eyebrow: "Produktvideo",
+      eyebrow: "01 / Einführung",
       title: "Sparrow in Aktion",
       lead:
-        "Ein Einblick in die Android-Beta, die interaktive Onboarding-Tour, verschlüsselte Chats und das Onion-Routing.",
-      iframeTitle: "Sparrow-Produktvideo",
-      posterBadge: "Sparrow 1.0 Beta Walkthrough",
-      posterTitle: "Den Beta-Walkthrough von Sparrow ansehen",
+        "Entdecke Sparrow auf Android und seine Nachrichtenfunktionen – vom Schreiben und Senden bis zum Empfangen einer Nachricht.",
+      iframeTitle: "Sparrow-Video",
+      posterBadge: "Sparrow für Android",
+      posterTitle: "So funktioniert Sparrow",
       posterSubtitle:
-        "Datenschutzfreundlicher YouTube-Embed (wird erst nach einem Klick geladen).",
-      playBtn: "▶ Video laden & abspielen",
+        "Das Video wird erst geladen, wenn du auf Abspielen klickst.",
+      playBtn: "▶ Video abspielen",
       watchExternal: "Auf YouTube ansehen"
     },
-    beta: {
-      eyebrow: "Beta-Test",
-      title: "Android-Beta ausprobieren",
+    contribute: {
+      eyebrow: "03 / Beitragen",
+      title: "Beitragen",
       lead:
-        "Sparrow 1.0.0-beta.1 steht für Android (API 29+) bereit. Teste föderiertes Messaging, probiere Multi-Hop-Onion-Circuits aus und hilf mit Feedback für Version 1.0.",
-      note: "Beta-Hinweis: Erstelle ein verschlüsseltes Identitäts-Backup (Einstellungen → Identität), um deine Schlüssel bei Updates wiederherstellen zu können.",
-      deviceNoteBefore:
-        "Verfügbar für Android 10+ (API 29). Die Schlüssel werden ausschließlich auf deinem Gerät erstellt. Sichere sie unter ",
-      identityPath: "Einstellungen → Identität",
-      deviceNoteAfter: ", damit du sie nach Beta-Updates wiederherstellen kannst.",
-      ctaBeta: "Am Beta-Test teilnehmen (Platzhalter)",
-      ctaReleases: "GitHub Releases (APK)",
-      placeholderTag: "Platzhalter-Link · konfigurierbar in config.js"
-    },
-    support: {
-      eyebrow: "04 / Community",
-      title: "Projekt unterstützen",
-      lead:
-        "Sparrow ist unabhängige Open-Source-Software ohne Werbung, Tracking oder Investorenbindung. Deine Unterstützung finanziert Testserver, Entwicklung und ein geplantes unabhängiges Sicherheitsaudit.",
+        "Sparrow wird offen entwickelt und seine Zukunft hängt davon ab, dass Menschen mitmachen. Du musst nicht programmieren können: Du kannst einen Server betreiben, die App verbessern, neue Änderungen testen oder Kosten mittragen. Such dir aus, was zu deinen Fähigkeiten und deiner Zeit passt.",
+      impactTitle: "Was dein Beitrag möglich macht",
+      impactLead:
+        "Mehr unabhängig betriebene Server bieten mehr Wege, Nachrichten zuzustellen. Code-Beiträge und Tests helfen, die App zu verbessern. Finanzielle Unterstützung deckt Kosten für Testserver und Entwicklung und kann eine unabhängige Sicherheitsprüfung ermöglichen. Jede Art von Hilfe stärkt einen Messenger, den verschiedene Gemeinschaften mittragen.",
+      developersTitle: "Code-Beiträge",
+      developersLead:
+        "Der Code für Sparrow-App und Server ist öffentlich auf GitHub. Entwicklerinnen und Entwickler können lernen, wie das Projekt funktioniert, Fehler beheben oder Verbesserungen vorschlagen. In Repository und offenen Issues siehst du, woran gerade gearbeitet wird. Wenn du nicht weißt, wo du anfangen sollst, stell erst eine Frage, bevor du größere Änderungen angehst.",
+      supportTitle: "Das Projekt unterstützen",
+      supportLead:
+        "Spenden helfen bei den Kosten für Testserver und Weiterentwicklung und können eine unabhängige Sicherheitsprüfung finanzieren. Das ist eine eigene Möglichkeit zu helfen – getrennt von Code-Beiträgen – und unterstützt die laufende Arbeit am Projekt.",
+      communityTitle: "Community",
+      communityLead:
+        "Du kannst auch ohne Code oder eigenen Server helfen. Teile deine Erfahrungen, stelle Fragen oder melde Probleme, damit wir erfahren, was unklar ist und verbessert werden sollte. Nutze den Kontakt-Button oder melde ein Problem auf GitHub.",
       actions: {
-        sponsor: "Supporter werden",
+        sponsor: "Sparrow unterstützen",
+        contributeCode: "Am Code mitarbeiten",
         donation: "Mit PayPal spenden",
-        contact: "Mitwirken / Kontakt"
+        contact: "Kontakt aufnehmen"
       },
       links: {
-        contributeCode: "Code beitragen",
-        reportIssues: "Fehler melden",
-        security: "Sicherheit & Bedrohungsmodell"
-      },
-      host: {
-        badge: "Infrastruktur",
-        title: "Einen Community-Node hosten",
-        desc: "Mehr unabhängige Betreiber sorgen für echte Multi-Hop-Vielfalt und Ausfallsicherheit. Starte das fertige Docker- + Ktor- + Caddy-Serverpaket auf Windows, Linux oder macOS.",
-        ctaPrimary: "Server-Anleitung (Docs)",
-        ctaSecondary: "Server-Architektur"
-      },
-      collab: {
-        badge: "Zusammenarbeit",
-        title: "Mitwirken & Kontakt",
-        desc: "Du interessierst dich für Kotlin Multiplatform, Kryptografie, Security-Reviews, Übersetzungen oder den Betrieb eigener Relays? Melde dich oder eröffne ein Issue.",
-        ctaEmail: "Kontakt / E-Mail",
-        ctaIssues: "GitHub Issues"
-      },
-      sponsor: {
-        badge: "Förderer werden",
-        title: "Supporter werden",
-        desc: "Unterstütze Sparrow regelmäßig finanziell, um Test-Infrastruktur, Serverkosten und ein künftiges unabhängiges Sicherheitsaudit zu ermöglichen.",
-        cta: "Supporter werden"
+        reportIssues: "Frage stellen oder Problem melden",
+        security: "So schützt Sparrow deine Privatsphäre"
       }
     },
     footer: {
-      tagline: "Ende-zu-Ende-verschlüsseltes Messaging in einem föderierten Netzwerk.",
+      tagline: "Private Nachrichten, zugestellt über Server unabhängiger Gemeinschaften.",
       copyright: "© 2026 Christian Bergmann · Sparrow",
       contact: "Kontakt",
       linksTitle: "Projekt",
@@ -484,22 +430,18 @@ export const TRANSLATIONS = {
     modal: {
       close: "Schließen",
       placeholderBadge: "Konfigurierbarer Platzhalter",
-      betaTitle: "Platzhalter für Beta-Test-Link",
-      betaBody:
-        "Dieser Button ist für deinen Beta-Anmelde- oder Test-Link vorbereitet (z. B. Google Play Closed Testing, Firebase App Distribution oder ein Formular). Trage die URL in config.js unter SPARROW_CONFIG.betaTest ein – oder lade die APK direkt über GitHub Releases.",
-      betaAction: "GitHub Releases öffnen",
       supporterTitle: "Platzhalter für Supporter-Link",
       supporterBody:
         "Hinterlege deine URL zu GitHub Sponsors, Liberapay, Patreon oder Open Collective in config.js unter SPARROW_CONFIG.supporter.",
-      contactTitle: "Sparrow kontaktieren",
+      contactTitle: "Kontakt aufnehmen",
       contactBody:
-        "Schreibe an {email}. Falls sich kein E-Mail-Programm öffnet, kannst du die Adresse kopieren.",
+        "Schreib uns an {email}. Falls sich kein E-Mail-Programm öffnet, kannst du die Adresse kopieren.",
       contactAction: "E-Mail-App öffnen",
       copyEmail: "E-Mail-Adresse kopieren",
       emailCopied: "E-Mail-Adresse kopiert"
     },
     common: {
-      copy: "Kopieren",
+      copy: "Befehl kopieren",
       copied: "Kopiert!"
     }
   }

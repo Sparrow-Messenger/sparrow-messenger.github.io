@@ -195,8 +195,8 @@ function getPulseBump(ring) {
 }
 
 export function mountSparrowLogo(canvas, options = {}) {
-  const primaryColor = options.primaryColor || "#35E6FF";
-  const backgroundColor = options.backgroundColor || "#071A2E";
+  const primaryColor = options.primaryColor || "#0099B8";
+  const backgroundColor = options.backgroundColor || "#EEF2F5";
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const ctx = canvas.getContext("2d");

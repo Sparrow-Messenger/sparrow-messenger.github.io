@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sparrow — Messages that leave no trail</title>
+  <title>Sparrow — Your messages stay private</title>
   <meta
     name="description"
-    content="End-to-end encrypted messaging routed through 1–5 hop federated Community Nodes."
+    content="A private messenger for Android. Messages are protected on your phone and delivered by servers run by different communities."
   />
-  <meta name="theme-color" content="#071A2E" />
+  <meta name="theme-color" content="#EEF2F5" />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,11 +24,10 @@
       </a>
 
       <nav class="nav-links" aria-label="Main navigation" data-i18n-aria-label="nav.mainNavigation">
-        <a href="#how-it-works" data-i18n="nav.transport">Transport</a>
-        <a href="#host-server" data-i18n="nav.hostServer">Host a Server</a>
-        <a href="#beta" data-i18n="nav.beta">Android Beta</a>
-        <a href="#support" data-i18n="nav.support">Support</a>
-        <a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer" data-i18n="nav.docs">Docs</a>
+        <a href="#preview" data-i18n="nav.preview">Introduction</a>
+        <a href="#how-it-works" data-i18n="nav.transport">How it works</a>
+        <a href="#contribute" data-i18n="nav.contribute">Contribute</a>
+        <a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer" data-i18n="nav.docs">Documentation</a>
       </nav>
 
       <div class="nav-actions">
@@ -65,11 +64,10 @@
     </div>
 
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" data-i18n-aria-label="nav.mobileNavigation">
-      <a href="#how-it-works" data-i18n="nav.transport">Transport</a>
-      <a href="#host-server" data-i18n="nav.hostServer">Host a Server</a>
-      <a href="#beta" data-i18n="nav.beta">Android Beta</a>
-      <a href="#support" data-i18n="nav.support">Support</a>
-      <a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer" data-i18n="nav.docs">Docs</a>
+      <a href="#preview" data-i18n="nav.preview">Introduction</a>
+      <a href="#how-it-works" data-i18n="nav.transport">How it works</a>
+      <a href="#contribute" data-i18n="nav.contribute">Contribute</a>
+      <a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer" data-i18n="nav.docs">Documentation</a>
     </nav>
   </header>
 
@@ -81,51 +79,72 @@
           <canvas id="sparrow-hero-canvas" width="240" height="240"></canvas>
         </div>
 
-        <span class="pill-badge">
-          <span class="dot"></span>
-          <span data-i18n="hero.badge">v1.0.0-beta.1 · Android</span>
-        </span>
-
-        <h1 data-i18n="hero.title">Messages that leave no trail.</h1>
+        <h1 data-i18n="hero.title">Your messages stay private.</h1>
 
         <p class="hero-sub" data-i18n="hero.subtitle">
-          Device-side libsodium encryption routed through 1–5 hop federated Community Nodes. Zero central servers. Zero push services.
+          Sparrow protects your messages on your phone before they’re sent. Independent communities can help deliver them, so one company doesn’t have to run the whole service.
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" data-placeholder="betaTest" aria-disabled="true" tabindex="-1" data-i18n="hero.ctaBeta">
-            Join Beta Test
-          </a>
-          <a class="btn btn-secondary" data-config-href="githubReleasesUrl" target="_blank" rel="noopener noreferrer" data-i18n="hero.ctaDownload">
-            Download APK →
+          <button type="button" class="btn btn-primary" disabled data-i18n="hero.ctaBeta">
+            Request beta access
+          </button>
+          <a class="btn btn-secondary" href="#how-it-works" data-i18n="hero.ctaHowItWorks">
+            See how messages travel
           </a>
         </div>
 
         <div class="stack-bar">
-          <span data-i18n="hero.stack.crypto">libsodium E2EE</span>
+          <span data-i18n="hero.stack.crypto">Protected on your phone</span>
           <span>·</span>
-          <span data-i18n="hero.stack.onion">1–5 Hop Onion</span>
+          <span data-i18n="hero.stack.onion">Passed through several stops</span>
           <span>·</span>
-          <span data-i18n="hero.stack.mailboxes">256 KiB Padded Mailboxes</span>
+          <span data-i18n="hero.stack.mailboxes">Waits in the recipient’s inbox</span>
           <span>·</span>
-          <span data-i18n="hero.stack.kotlin">Kotlin Multiplatform</span>
+          <span data-i18n="hero.stack.kotlin">Android app</span>
         </div>
       </div>
     </section>
 
-    <!-- BAND 2: LIVE ONION DIAGRAM -->
+    <!-- BAND 2: PRODUCT VIDEO -->
+    <section class="band band-alt" id="preview">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="video.eyebrow">01 / Introduction</span>
+          <h2 data-i18n="video.title">See Sparrow in action</h2>
+          <p class="section-lead" data-i18n="video.lead">
+            A quick look at how Sparrow works on Android. The video loads only when you choose to play it.
+          </p>
+        </div>
+
+        <div class="video-frame" id="video-frame">
+          <div class="video-poster" id="video-poster">
+            <h3 data-i18n="video.posterTitle">See how Sparrow works</h3>
+            <p data-i18n="video.posterSubtitle">A short look at Sparrow on Android. Press play when you’re ready.</p>
+            <button type="button" class="btn btn-primary" id="load-video-btn" data-i18n="video.playBtn">
+              ▶ Play the video
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAND 3: LIVE ONION DIAGRAM -->
     <section class="band band-alt" id="how-it-works">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow" data-i18n="comm.eyebrow">01 / Zero-Metadata Transport</span>
-          <h2 data-i18n="comm.title">Wrapped in layers. Delivered blind.</h2>
+          <span class="eyebrow" data-i18n="comm.eyebrow">02 / How it works</span>
+          <h2 data-i18n="comm.title">How it works</h2>
+          <p class="section-lead" data-i18n="comm.lead">
+            Your phone locks each message before sending it. Servers pass it along without reading it, and it waits in the recipient’s inbox until they’re ready.
+          </p>
         </div>
 
         <div class="diagram-wrap">
           <div class="diagram-bar">
             <div class="toolbar-group">
-              <span data-i18n="comm.hopsLabel">Hops:</span>
-              <div class="segmented" role="group" aria-label="Relay hops" data-i18n-aria-label="comm.relayHops">
+              <span data-i18n="comm.hopsLabel">Stops:</span>
+              <div class="segmented" role="group" aria-label="Number of stops" data-i18n-aria-label="comm.relayHops">
                 <button type="button" class="seg-btn active" data-hops="2">2</button>
                 <button type="button" class="seg-btn" data-hops="3">3</button>
                 <button type="button" class="seg-btn" data-hops="5">5</button>
@@ -134,7 +153,7 @@
 
             <label class="switch-label">
               <input type="checkbox" id="decoys-toggle" checked />
-              <span data-i18n="comm.decoysLabel">Decoy traffic</span>
+              <span data-i18n="comm.decoysLabel">Send extra messages for privacy</span>
             </label>
 
             <button type="button" class="btn-inline" id="onion-play-btn">Pause</button>
@@ -145,154 +164,152 @@
 
         <div class="step-row" id="comm-steps">
           <button type="button" class="step-card active" data-step="0">
-            <strong data-i18n="comm.steps.0.title">01. Seal &amp; Pad</strong>
-            <span data-i18n="comm.steps.0.desc">Device encrypts &amp; pads to fixed 1–256 KiB classes.</span>
+            <strong data-i18n="comm.steps.0.title">01. Protect your message</strong>
+            <span data-i18n="comm.steps.0.desc">Your phone locks the message so only people in the chat can read it.</span>
           </button>
           <button type="button" class="step-card" data-step="1">
-            <strong data-i18n="comm.steps.1.title">02. Onion Hops</strong>
-            <span data-i18n="comm.steps.1.desc">Each relay peels one layer and knows only the next hop.</span>
+            <strong data-i18n="comm.steps.1.title">02. Pass it along</strong>
+            <span data-i18n="comm.steps.1.desc">The computers that pass it along can’t read what it says.</span>
           </button>
           <button type="button" class="step-card" data-step="2">
-            <strong data-i18n="comm.steps.2.title">03. Dead-Drop</strong>
-            <span data-i18n="comm.steps.2.desc">Stored in recipient mailbox with zero sender/recipient IDs.</span>
+            <strong data-i18n="comm.steps.2.title">03. Wait in their inbox</strong>
+            <span data-i18n="comm.steps.2.desc">The recipient can collect it when they’re ready.</span>
           </button>
           <button type="button" class="step-card" data-step="3">
-            <strong data-i18n="comm.steps.3.title">04. Failover</strong>
-            <span data-i18n="comm.steps.3.desc">Signed Control Planes route around offline nodes.</span>
+            <strong data-i18n="comm.steps.3.title">04. Find another route</strong>
+            <span data-i18n="comm.steps.3.desc">If one of those computers isn’t available, Sparrow can use another way.</span>
           </button>
         </div>
       </div>
     </section>
-    <!-- BAND 3: HOST A SERVER (WEBPACK-STYLE WALKTHROUGH) -->
-    <section class="band band-base" id="host-server">
-      <div class="container">
+    <!-- BAND 4: CONTRIBUTIONS -->
+    <section class="band band-base contribute-band" id="contribute">
+      <div class="container contribute-center">
         <div class="section-head">
-          <span class="eyebrow" data-i18n="hosting.eyebrow">02 / Federation</span>
-          <h2 data-i18n="hosting.title">Host a Community Node</h2>
-          <p class="section-lead" data-i18n="hosting.lead">
-            Every independent relay and mailbox operator strengthens circuit diversity. Deploy the unified Ktor + Caddy Docker stack on any Linux, macOS, or Windows host with ports 80 and 443 open.
+          <span class="eyebrow" data-i18n="contribute.eyebrow">03 / Contribute</span>
+          <h2 data-i18n="contribute.title">Contribute to Sparrow</h2>
+          <p class="section-lead" data-i18n="contribute.lead">
+            Sparrow is built in the open, and its future depends on people taking part. You don’t need to be a developer to help: you can run a server, improve the app, test new changes, or help cover project costs. Choose what fits your skills and time.
           </p>
         </div>
 
-        <div class="wb-step">
-          <h3 data-i18n="hosting.cloneTitle">Clone the Server Bundle</h3>
-          <div class="terminal">
-            <div class="terminal-top">
-              <span data-i18n="hosting.terminal">Terminal</span>
-              <button type="button" class="copy-btn" data-copy="git clone https://github.com && cd Sparrow/server" data-i18n="common.copy">Copy</button>
-            </div>
-            <pre><code>git clone https://github.com
-cd Sparrow/server</code></pre>
-          </div>
+        <div class="wb-step contribute-impact">
+          <h3 data-i18n="contribute.impactTitle">What your contribution makes possible</h3>
+          <p class="step-note" data-i18n="contribute.impactLead">
+            More independently run servers give people more choices for message delivery. Code contributions and testing help improve the app, while financial support helps pay for test servers, development, and an independent security review. Every kind of help supports a more resilient, community-run messenger.
+          </p>
         </div>
 
-        <div class="wb-step">
-          <h3 data-i18n="hosting.configureTitle">Configure Your Node</h3>
-          <p class="file-caption"><strong>server/.env</strong></p>
-          <div class="terminal">
-            <div class="terminal-top">
-              <span>.env</span>
-              <button type="button" class="copy-btn" data-copy="cp .env.example .env" data-i18n="common.copy">Copy</button>
+        <section class="contribute-subsection" id="contribute-server" aria-labelledby="contribute-server-title">
+          <h3 id="contribute-server-title" data-i18n="hosting.title">Help run a Sparrow server</h3>
+          <p class="step-note" data-i18n="hosting.lead">
+            Running a server gives the network another independently operated place to pass messages. It takes a computer that can stay online and some comfort following setup instructions. It’s optional: most people can just use Sparrow on Android. The steps below walk through setup.
+          </p>
+
+          <div class="server-setup-steps">
+            <div class="wb-step">
+            <h4 data-i18n="hosting.cloneTitle">Get the server files</h4>
+            <div class="terminal">
+              <div class="terminal-top">
+                <span data-i18n="hosting.terminal">Commands</span>
+                <button type="button" class="copy-btn" data-copy="git clone https://github.com && cd Sparrow/server" data-i18n="common.copy">Copy</button>
+              </div>
+              <pre><code>git clone https://github.com
+cd Sparrow/server</code></pre>
             </div>
-            <pre><code>SPARROW_DOMAIN=node.example.org
+            </div>
+
+            <div class="wb-step">
+            <h4 data-i18n="hosting.configureTitle">Set up your server</h4>
+            <p class="file-caption"><strong>server/.env</strong></p>
+            <div class="terminal">
+              <div class="terminal-top">
+                <span>.env</span>
+                <button type="button" class="copy-btn" data-copy="cp .env.example .env" data-i18n="common.copy">Copy</button>
+              </div>
+              <pre><code>SPARROW_DOMAIN=node.example.org
 SPARROW_OPERATOR_NAME="My Community Node"
 SPARROW_CONTROL_PLANES=https://sparrow-messenger.org</code></pre>
-          </div>
-          <p class="step-note">
-            <span data-i18n="hosting.configureNoteBefore">Copy </span><code>.env.example</code><span data-i18n="hosting.configureNoteMiddle"> to </span><code>.env</code><span data-i18n="hosting.configureNoteAfter"> and set your public domain so Caddy can automatically provision TLS certificates.</span>
-          </p>
-        </div>
-
-        <div class="wb-step">
-          <h3 data-i18n="hosting.buildTitle">Build &amp; Launch</h3>
-          <div class="terminal">
-            <div class="terminal-top">
-              <span data-i18n="hosting.terminal">Terminal</span>
-              <button type="button" class="copy-btn" data-copy="docker compose up -d --build" data-i18n="common.copy">Copy</button>
             </div>
-            <pre><code>docker compose up -d --build</code></pre>
-          </div>
-          <p class="step-note" data-i18n="hosting.buildNote">
-            Starts the Ktor relay/mailbox service alongside Caddy reverse proxy in the background.
-          </p>
-        </div>
-
-        <div class="wb-step">
-          <h3 data-i18n="hosting.verifyTitle">Verify Your Endpoint</h3>
-          <div class="terminal">
-            <div class="terminal-top">
-              <span data-i18n="hosting.terminal">Terminal</span>
-              <button type="button" class="copy-btn" data-copy="curl -I https://example.org" data-i18n="common.copy">Copy</button>
+            <p class="step-note">
+              <span data-i18n="hosting.configureNoteBefore">Copy </span><code>.env.example</code><span data-i18n="hosting.configureNoteMiddle"> to </span><code>.env</code>            <span data-i18n="hosting.configureNoteAfter"> and enter the web address for your server. The secure connection will be set up automatically.</span>
+            </p>
             </div>
-            <pre><code>curl -I https://example.org</code></pre>
+
+            <div class="wb-step">
+            <h4 data-i18n="hosting.buildTitle">Start the server</h4>
+            <div class="terminal">
+              <div class="terminal-top">
+                <span data-i18n="hosting.terminal">Commands</span>
+                <button type="button" class="copy-btn" data-copy="docker compose up -d --build" data-i18n="common.copy">Copy</button>
+              </div>
+              <pre><code>docker compose up -d --build</code></pre>
+            </div>
+            <p class="step-note" data-i18n="hosting.buildNote">
+              This starts the programs that deliver messages and keep the connection secure.
+            </p>
+            </div>
+
+            <div class="wb-step">
+            <h4 data-i18n="hosting.verifyTitle">Check that it’s working</h4>
+            <div class="terminal">
+              <div class="terminal-top">
+                <span data-i18n="hosting.terminal">Commands</span>
+                <button type="button" class="copy-btn" data-copy="curl -I https://example.org" data-i18n="common.copy">Copy</button>
+              </div>
+              <pre><code>curl -I https://example.org</code></pre>
+            </div>
+            <p class="step-note">
+              <span data-i18n="hosting.verifyNoteBefore">If everything is working, you’ll see </span><code>HTTP/2 200</code><span data-i18n="hosting.verifyNoteAfter">. That means your server is responding. </span>
+              <a data-config-href="docsServerHostingUrl" target="_blank" rel="noopener noreferrer" data-i18n="hosting.docsLink">Read the server setup guide →</a>
+            </p>
+            </div>
           </div>
-          <p class="step-note">
-            <span data-i18n="hosting.verifyNoteBefore">Returns </span><code>HTTP/2 200</code><span data-i18n="hosting.verifyNoteAfter"> with your live gateway, federation, and mailbox status page. </span>
-            <a data-config-href="docsServerHostingUrl" target="_blank" rel="noopener noreferrer" data-i18n="hosting.docsLink">Read full hosting docs →</a>
+        </section>
+
+        <section class="contribute-subsection" id="contribute-code" aria-labelledby="contribute-code-title">
+          <h3 id="contribute-code-title" data-i18n="contribute.developersTitle">Code contributions</h3>
+          <p class="step-note" data-i18n="contribute.developersLead">
+            Sparrow’s app and server code are public on GitHub. Developers can learn how the project works, fix problems, or suggest improvements. Browse the repository and open issues to see what the project is working on. If you’re unsure where to start, ask a question before tackling a larger change.
           </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- BAND 4: ANDROID BETA & PRODUCT VIDEO -->
-    <section class="band band-alt" id="beta">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow" data-i18n="beta.eyebrow">03 / Public Beta</span>
-          <h2 data-i18n="beta.title">Try Sparrow on Android</h2>
-          <p class="section-lead">
-            <span data-i18n="beta.deviceNoteBefore">Available for Android 10+ (API 29). Keys are generated strictly on your device—back them up under </span><code data-i18n="beta.identityPath">Settings → Identity</code><span data-i18n="beta.deviceNoteAfter"> to restore across beta releases.</span>
-          </p>
-        </div>
-
-        <div class="hero-actions" style="justify-content: flex-start; margin-bottom: 2.25rem;">
-          <a class="btn btn-primary" data-placeholder="betaTest" aria-disabled="true" tabindex="-1" data-i18n="beta.ctaBeta">
-            Join Beta Test
-          </a>
-          <a class="btn btn-secondary" data-config-href="githubReleasesUrl" target="_blank" rel="noopener noreferrer" data-i18n="beta.ctaReleases">
-            Download APK (GitHub Releases) →
-          </a>
-        </div>
-
-        <div class="video-frame" id="video-frame">
-          <div class="video-poster" id="video-poster">
-            <h3 data-i18n="video.posterTitle">Watch the 1.0 Beta Walkthrough</h3>
-            <p data-i18n="video.posterSubtitle">Privacy-enhanced YouTube embed (loads only when clicked).</p>
-            <button type="button" class="btn btn-primary" id="load-video-btn" data-i18n="video.playBtn">
-              ▶ Load &amp; Play Video
-            </button>
+          <div class="hero-actions" style="margin-top: 1rem;">
+            <a class="btn btn-primary" data-config-href="githubRepoUrl" target="_blank" rel="noopener noreferrer" data-i18n="contribute.actions.contributeCode">
+              Contribute code
+            </a>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- BAND 5: SUPPORT THE PROJECT (WEBPACK-STYLE) -->
-    <section class="band band-base support-band" id="support">
-      <div class="container support-center">
-        <span class="eyebrow" data-i18n="support.eyebrow">04 / Community</span>
-        <h2 data-i18n="support.title">Support the Project</h2>
-        <p class="support-lead" data-i18n="support.lead">
-          Sparrow is independent, open-source software built without ads, tracking, or venture lock-in. Your support funds test servers, development, and an upcoming third-party security audit.
-        </p>
+        <section class="contribute-subsection" id="contribute-support" aria-labelledby="contribute-support-title">
+          <h3 id="contribute-support-title" data-i18n="contribute.supportTitle">Support the project</h3>
+          <p class="step-note" data-i18n="contribute.supportLead">
+            Donations help pay for test servers and development, and can help fund an independent security review. This is a separate way to help from contributing code, and donations support the project’s ongoing work.
+          </p>
+          <div class="hero-actions" style="margin-top: 1rem;">
+            <a class="btn btn-primary" data-placeholder="supporter" aria-disabled="true" tabindex="-1" data-i18n="contribute.actions.sponsor">
+              Support Sparrow
+            </a>
+            <a class="btn btn-secondary" data-config-href="paypalUrl" data-i18n="contribute.actions.donation">
+              Donate with PayPal
+            </a>
+          </div>
+        </section>
 
-        <div class="hero-actions" style="margin-bottom: 1.5rem;">
-          <a class="btn btn-primary" data-placeholder="supporter" aria-disabled="true" tabindex="-1" data-i18n="support.actions.sponsor">
-            Become a Supporter
-          </a>
-          <a class="btn btn-secondary" data-config-href="paypalUrl" data-i18n="support.actions.donation">
-            Donate via PayPal
-          </a>
-          <a href="#contact-placeholder" class="btn btn-secondary" data-placeholder="contact" data-i18n="support.actions.contact">
-            Collaborate / Contact
-          </a>
-        </div>
+        <section class="contribute-subsection" id="contribute-community" aria-labelledby="contribute-community-title">
+          <h3 id="contribute-community-title" data-i18n="contribute.communityTitle">Community</h3>
+          <p class="step-note" data-i18n="contribute.communityLead">
+            You can help without writing code or running a server. Share your experience, ask questions, or report problems so we can learn what is confusing and what needs improvement. Use the contact button or report an issue on GitHub.
+          </p>
+          <div class="hero-actions" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+            <a href="#contact-placeholder" class="btn btn-secondary" data-placeholder="contact" data-i18n="contribute.actions.contact">
+              Get in touch
+            </a>
+          </div>
+        </section>
 
         <div class="stack-bar">
-          <a data-config-href="githubRepoUrl" target="_blank" rel="noopener noreferrer" data-i18n="support.links.contributeCode">Contribute Code</a>
+          <a data-config-href="githubIssuesUrl" target="_blank" rel="noopener noreferrer" data-i18n="contribute.links.reportIssues">Ask a question or report a problem</a>
           <span>·</span>
-          <a data-config-href="githubIssuesUrl" target="_blank" rel="noopener noreferrer" data-i18n="support.links.reportIssues">Report Issues</a>
-          <span>·</span>
-          <a data-config-href="docsWhySparrowUrl" target="_blank" rel="noopener noreferrer" data-i18n="support.links.security">Security &amp; Threat Model</a>
+          <a data-config-href="docsWhySparrowUrl" target="_blank" rel="noopener noreferrer" data-i18n="contribute.links.security">How Sparrow protects your privacy</a>
         </div>
       </div>
     </section>
@@ -303,9 +320,9 @@ SPARROW_CONTROL_PLANES=https://sparrow-messenger.org</code></pre>
       <span>© 2026 Christian Bergmann · Sparrow</span>
       <div class="footer-links">
         <a data-config-href="githubRepoUrl" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer" data-i18n="nav.docs">Docs</a>
+        <a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer" data-i18n="nav.docs">Documentation</a>
         <a href="#contact-placeholder" data-placeholder="contact" data-i18n="footer.contact">Contact</a>
-        <a href="#support" data-i18n="nav.support">Support</a>
+        <a href="#contribute" data-i18n="nav.contribute">Contribute</a>
       </div>
     </div>
   </footer>

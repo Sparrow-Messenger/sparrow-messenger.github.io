@@ -6,25 +6,25 @@
 const NODE_LAYOUTS = {
   2: [
     { x: 0.1, y: 0.72, role: "you", operator: null },
-    { x: 0.34, y: 0.34, role: "home", operator: "Op A" },
-    { x: 0.62, y: 0.74, role: "relay", operator: "Op B" },
-    { x: 0.88, y: 0.38, role: "mailbox", operator: "Op C" }
+    { x: 0.34, y: 0.34, role: "home", operator: "A" },
+    { x: 0.62, y: 0.74, role: "relay", operator: "B" },
+    { x: 0.88, y: 0.38, role: "mailbox", operator: "C" }
   ],
   3: [
     { x: 0.08, y: 0.72, role: "you", operator: null },
-    { x: 0.27, y: 0.32, role: "home", operator: "Op A" },
-    { x: 0.49, y: 0.76, role: "relay", operator: "Op B" },
-    { x: 0.69, y: 0.3, role: "relay", operator: "Op C" },
-    { x: 0.9, y: 0.68, role: "mailbox", operator: "Op D" }
+    { x: 0.27, y: 0.32, role: "home", operator: "A" },
+    { x: 0.49, y: 0.76, role: "relay", operator: "B" },
+    { x: 0.69, y: 0.3, role: "relay", operator: "C" },
+    { x: 0.9, y: 0.68, role: "mailbox", operator: "D" }
   ],
   5: [
     { x: 0.06, y: 0.72, role: "you", operator: null },
-    { x: 0.21, y: 0.32, role: "home", operator: "Op A" },
-    { x: 0.36, y: 0.76, role: "relay", operator: "Op B" },
-    { x: 0.52, y: 0.28, role: "relay", operator: "Op C" },
-    { x: 0.67, y: 0.76, role: "relay", operator: "Op D" },
-    { x: 0.8, y: 0.32, role: "relay", operator: "Op E" },
-    { x: 0.93, y: 0.68, role: "mailbox", operator: "Op F" }
+    { x: 0.21, y: 0.32, role: "home", operator: "A" },
+    { x: 0.36, y: 0.76, role: "relay", operator: "B" },
+    { x: 0.52, y: 0.28, role: "relay", operator: "C" },
+    { x: 0.67, y: 0.76, role: "relay", operator: "D" },
+    { x: 0.8, y: 0.32, role: "relay", operator: "E" },
+    { x: 0.93, y: 0.68, role: "mailbox", operator: "F" }
   ]
 };
 
@@ -35,17 +35,17 @@ const DECOY_TARGETS = [
 ];
 
 const COLORS = {
-  bg: "#071A2E",
-  surface: "#102A46",
-  surfaceHigh: "#17324D",
-  primary: "#35E6FF",
-  secondary: "#8AB9C7",
-  tertiary: "#4FD3A3",
-  warning: "#E0B050",
-  text: "#F6FAFE",
-  muted: "#B7C8D6",
-  outline: "#668095",
-  outlineVariant: "#2D4A62"
+  bg: "#EEF2F5",
+  surface: "#FFFFFF",
+  surfaceHigh: "#E5EBEF",
+  primary: "#0099B8",
+  secondary: "#47606A",
+  tertiary: "#107A55",
+  warning: "#B06D00",
+  text: "#0B1924",
+  muted: "#43525E",
+  outline: "#6C7B87",
+  outlineVariant: "#C4CFD6"
 };
 
 function easeInOut(v) {
@@ -88,7 +88,7 @@ export function mountOnionAnimation(canvas, getLabels) {
     // Subtle discovery path from Home -> Relay2 -> Control Plane
     ctx.save();
     ctx.setLineDash([4, 6]);
-    ctx.strokeStyle = activeStep === 3 ? COLORS.tertiary : "rgba(102, 128, 149, 0.35)";
+    ctx.strokeStyle = activeStep === 3 ? COLORS.tertiary : "rgba(108, 123, 135, 0.35)";
     ctx.lineWidth = activeStep === 3 ? 1.8 : 1.1;
     ctx.beginPath();
     ctx.moveTo(home.px, home.py);
@@ -103,7 +103,7 @@ export function mountOnionAnimation(canvas, getLabels) {
     const pillH = 30;
     ctx.save();
     drawRoundedRect(cp.x - pillW / 2, cp.y - pillH / 2, pillW, pillH, 15);
-    ctx.fillStyle = activeStep === 3 ? "rgba(18, 61, 50, 0.9)" : "rgba(16, 42, 70, 0.88)";
+    ctx.fillStyle = activeStep === 3 ? "rgba(189, 245, 221, 0.9)" : "rgba(255, 255, 255, 0.88)";
     ctx.fill();
     ctx.strokeStyle = activeStep === 3 ? COLORS.tertiary : COLORS.outlineVariant;
     ctx.lineWidth = 1.2;
@@ -119,7 +119,7 @@ export function mountOnionAnimation(canvas, getLabels) {
       const pulse = ((time % 1800) / 1800);
       ctx.beginPath();
       ctx.arc(cp.x, cp.y, 16 + pulse * 14, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(79, 211, 163, ${0.45 * (1 - pulse)})`;
+      ctx.strokeStyle = `rgba(16, 122, 85, ${0.45 * (1 - pulse)})`;
       ctx.lineWidth = 1.5;
       ctx.stroke();
     }
@@ -144,7 +144,7 @@ export function mountOnionAnimation(canvas, getLabels) {
     ctx.clearRect(0, 0, w, h);
 
     // Subtle background dot grid
-    ctx.fillStyle = "rgba(102, 128, 149, 0.14)";
+    ctx.fillStyle = "rgba(108, 123, 135, 0.14)";
     for (let gx = 24; gx < w; gx += 32) {
       for (let gy = 24; gy < h; gy += 32) {
         ctx.fillRect(gx, gy, 1.4, 1.4);
@@ -196,7 +196,7 @@ export function mountOnionAnimation(canvas, getLabels) {
 
     // Active traversed glow
     ctx.save();
-    ctx.strokeStyle = "rgba(53, 230, 255, 0.36)";
+    ctx.strokeStyle = "rgba(0, 153, 184, 0.36)";
     ctx.lineWidth = 2.6;
     ctx.beginPath();
     ctx.moveTo(points[0].px, points[0].py);
@@ -216,7 +216,7 @@ export function mountOnionAnimation(canvas, getLabels) {
         const ty = target.y * h;
         ctx.save();
         ctx.setLineDash([3, 5]);
-        ctx.strokeStyle = "rgba(138, 185, 199, 0.25)";
+        ctx.strokeStyle = "rgba(71, 96, 106, 0.25)";
         ctx.lineWidth = 1.1;
         ctx.beginPath();
         ctx.moveTo(lastRelay.px, lastRelay.py);
@@ -240,7 +240,7 @@ export function mountOnionAnimation(canvas, getLabels) {
           const dy = lastRelay.py + (ty - lastRelay.py) * easeInOut(decoyProgress);
           ctx.beginPath();
           ctx.arc(dx, dy, 4, 0, Math.PI * 2);
-          ctx.fillStyle = "rgba(138, 185, 199, 0.75)";
+          ctx.fillStyle = "rgba(71, 96, 106, 0.75)";
           ctx.fill();
         }
         ctx.restore();
@@ -261,7 +261,7 @@ export function mountOnionAnimation(canvas, getLabels) {
       if (isActiveNode || idx === currentHop) {
         ctx.beginPath();
         ctx.arc(pt.px, pt.py, 17, 0, Math.PI * 2);
-        ctx.fillStyle = isMailbox ? "rgba(79, 211, 163, 0.14)" : "rgba(53, 230, 255, 0.14)";
+        ctx.fillStyle = isMailbox ? "rgba(16, 122, 85, 0.14)" : "rgba(0, 153, 184, 0.14)";
         ctx.fill();
       }
 
@@ -310,7 +310,7 @@ export function mountOnionAnimation(canvas, getLabels) {
       if (pt.operator && w > 430) {
         ctx.fillStyle = COLORS.outline;
         ctx.font = "500 10px system-ui, -apple-system, sans-serif";
-        ctx.fillText(pt.operator, pt.px, labelY + (labelAbove ? -13 : 13));
+        ctx.fillText(`${labels.community} ${pt.operator}`, pt.px, labelY + (labelAbove ? -13 : 13));
       }
     });
 
@@ -344,9 +344,9 @@ export function mountOnionAnimation(canvas, getLabels) {
     const remaining = Math.max(1, hops - peeledCount);
     const layerLabel =
       peeledCount < hops
-        ? `${labels.layersRemaining}: ${remaining}/${hops} + E2EE`
+        ? `${labels.layersRemaining}: ${remaining}/${hops} · ${labels.e2eeLocked}`
         : labels.e2eeLocked;
-    ctx.fillStyle = "rgba(16, 42, 70, 0.85)";
+    ctx.fillStyle = "rgba(255, 255, 255, 0.85)";
     drawRoundedRect(14, h - 38, Math.min(230, w - 28), 26, 13);
     ctx.fill();
     ctx.strokeStyle = COLORS.outlineVariant;
@@ -355,7 +355,7 @@ export function mountOnionAnimation(canvas, getLabels) {
     ctx.fillStyle = COLORS.primary;
     ctx.font = "600 11px system-ui, -apple-system, sans-serif";
     ctx.textAlign = "left";
-    ctx.fillText(layerLabel, 26, h - 25);
+    ctx.fillText(layerLabel, 26, h - 25, Math.min(204, w - 52));
 
     ctx.restore();
     rafId = requestAnimationFrame(render);

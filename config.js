@@ -4,7 +4,6 @@
  */
 export const SPARROW_CONFIG = {
   githubRepoUrl: "https://github.com/cbgm/Sparrow",
-  githubReleasesUrl: "https://github.com/cbgm/Sparrow/releases",
   githubIssuesUrl: "https://github.com/cbgm/Sparrow/issues",
   websiteRepoUrl: "https://github.com/Sparrow-Messenger/sparrow-messenger",
 
@@ -25,10 +24,6 @@ export const SPARROW_CONFIG = {
   },
 
   // Placeholder links — update these with your real URLs when ready
-  betaTest: {
-    url: "#beta-placeholder",
-    isPlaceholder: true
-  },
   supporter: {
     url: "#supporter-placeholder",
     isPlaceholder: true

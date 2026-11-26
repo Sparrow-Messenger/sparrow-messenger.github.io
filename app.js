@@ -225,13 +225,7 @@ function renderPlaceholderModal(type) {
   modalSecondary.style.display = "none";
   modalCopyEmail.style.display = "none";
 
-  if (type === "betaTest") {
-    modalTitle.textContent = m.betaTitle;
-    modalBody.textContent = m.betaBody;
-    modalSecondary.textContent = m.betaAction;
-    modalSecondary.href = SPARROW_CONFIG.githubReleasesUrl;
-    modalSecondary.style.display = "inline-flex";
-  } else if (type === "supporter") {
+  if (type === "supporter") {
     modalTitle.textContent = m.supporterTitle;
     modalBody.textContent = m.supporterBody;
   } else if (type === "contact") {
