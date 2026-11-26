@@ -5,25 +5,41 @@ export const TRANSLATIONS = {
       "End-to-end encrypted messaging with a federated, independently hostable transport network built with Kotlin Multiplatform.",
     nav: {
       features: "Features",
+      transport: "Transport",
+      hostServer: "Host a Server",
+      docs: "Docs",
+      home: "Sparrow Home",
+      mainNavigation: "Main navigation",
+      mobileNavigation: "Mobile navigation",
+      languageSwitch: "Language switch",
+      toggleNavigation: "Toggle navigation",
       howItWorks: "How it works",
       video: "Video",
-      beta: "Beta Test",
+      beta: "Android Beta",
       support: "Support",
       github: "GitHub"
     },
     hero: {
       badge: "Public Beta · v1.0.0-beta.1 · Android",
       title: "Messages that leave no trail.",
+      logoAria: "Interactive Sparrow Logo",
       subtitle:
         "End-to-end encrypted messaging built with Kotlin Multiplatform and a federated, independently hostable network of Community Nodes — so no single server or operator controls your communication.",
       ctaBeta: "Join Beta Test",
+      ctaDownload: "Download APK →",
       ctaGithub: "View on GitHub",
       ctaVideo: "Watch product video",
       replayBtn: "Replay flight",
       sendHint: "Click Sparrow to pulse",
       pillCrypto: "libsodium E2EE",
       pillOnion: "1–5 Hop Onion Circuits",
-      pillFederated: "Self-Hostable Nodes"
+      pillFederated: "Self-Hostable Nodes",
+      stack: {
+        crypto: "libsodium E2EE",
+        onion: "1–5 Hop Onion",
+        mailboxes: "256 KiB Padded Mailboxes",
+        kotlin: "Kotlin Multiplatform"
+      }
     },
     about: {
       eyebrow: "What is Sparrow?",
@@ -77,12 +93,13 @@ export const TRANSLATIONS = {
       docsLink: "Read “What makes Sparrow different?”"
     },
     comm: {
-      eyebrow: "How Communication Works",
-      title: "Wrapped in layers. Delivered without exposing both ends.",
+      eyebrow: "01 / Zero-Metadata Transport",
+      title: "Wrapped in layers. Delivered blind.",
       lead:
         "Every message stays encrypted end-to-end on your device, travels through relays of different operators, and lands in a recipient-selected mailbox.",
-      hopsLabel: "Circuit hops:",
-      decoysLabel: "Decoy envelopes",
+      hopsLabel: "Hops:",
+      relayHops: "Relay hops",
+      decoysLabel: "Decoy traffic",
       play: "Play",
       pause: "Pause",
       canvasLabels: {
@@ -97,34 +114,53 @@ export const TRANSLATIONS = {
       },
       steps: [
         {
-          title: "1. Encrypt & Pad on Device",
-          desc: "Your device encrypts the message for the recipient (libsodium) and pads it to fixed size classes (1–256 KiB) so packet sizes stay uniform."
+          title: "01. Seal & Pad",
+          desc: "Device encrypts & pads to fixed 1–256 KiB classes."
         },
         {
-          title: "2. Multi-Hop Onion Circuit",
-          desc: "Your app wraps the request in onion layers through 1–5 relays of different operators. Each relay peels one layer and only knows the next hop."
+          title: "02. Onion Hops",
+          desc: "Each relay peels one layer and knows only the next hop."
         },
         {
-          title: "3. Recipient Mailbox & Decoys",
-          desc: "The padded ciphertext lands in the recipient’s mailbox without sender or recipient IDs. Optional decoy envelopes mask timing across contacts."
+          title: "03. Dead-Drop",
+          desc: "Stored in recipient mailbox with zero sender/recipient IDs."
         },
         {
-          title: "4. Federated Discovery & Failover",
-          desc: "Control Planes provide signed node directories and alias routes (queried via 2 relays). If a node drops, your app automatically fails over."
+          title: "04. Failover",
+          desc: "Signed Control Planes route around offline nodes."
         }
       ],
       docsLink: "Explore transport architecture in the docs"
+    },
+    hosting: {
+      eyebrow: "02 / Federation",
+      title: "Host a Community Node",
+      lead:
+        "Every independent relay and mailbox operator strengthens circuit diversity. Deploy the unified Ktor + Caddy Docker stack on any Linux, macOS, or Windows host with ports 80 and 443 open.",
+      cloneTitle: "Clone the Server Bundle",
+      configureTitle: "Configure Your Node",
+      buildTitle: "Build & Launch",
+      verifyTitle: "Verify Your Endpoint",
+      terminal: "Terminal",
+      configureNoteBefore: "Copy ",
+      configureNoteMiddle: " to ",
+      configureNoteAfter: " and set your public domain so Caddy can automatically provision TLS certificates.",
+      buildNote: "Starts the Ktor relay/mailbox service alongside Caddy reverse proxy in the background.",
+      verifyNoteBefore: "Returns ",
+      verifyNoteAfter: " with your live gateway, federation, and mailbox status page.",
+      docsLink: "Read full hosting docs →"
     },
     video: {
       eyebrow: "Product Video",
       title: "See Sparrow in action",
       lead:
         "A walkthrough of Sparrow’s Android beta, onboarding tour, encrypted messaging, and onion-routed transport.",
+      iframeTitle: "Sparrow Product Video",
       posterBadge: "Sparrow 1.0 Beta Walkthrough",
-      posterTitle: "Watch the Sparrow Product Video",
+      posterTitle: "Watch the 1.0 Beta Walkthrough",
       posterSubtitle:
-        "Click to load the privacy-enhanced YouTube embed (youtube-nocookie.com), or open directly on YouTube.",
-      playBtn: "Load & Play Video",
+        "Privacy-enhanced YouTube embed (loads only when clicked).",
+      playBtn: "▶ Load & Play Video",
       watchExternal: "Watch on YouTube"
     },
     beta: {
@@ -133,15 +169,29 @@ export const TRANSLATIONS = {
       lead:
         "Sparrow 1.0.0-beta.1 is available for Android (API 29+). Test federated messaging, try out multi-hop onion circuits, and help shape the 1.0 release.",
       note: "Beta tip: Keep an encrypted identity backup (Settings → Identity) so you can restore your keys across updates.",
+      deviceNoteBefore:
+        "Available for Android 10+ (API 29). Keys are generated strictly on your device—back them up under ",
+      identityPath: "Settings → Identity",
+      deviceNoteAfter: " to restore across beta releases.",
       ctaBeta: "Join Beta Test (Placeholder)",
       ctaReleases: "GitHub Releases (APK)",
       placeholderTag: "Placeholder link · configure in config.js"
     },
     support: {
-      eyebrow: "Support the Project",
-      title: "Help keep Sparrow independent",
+      eyebrow: "04 / Community",
+      title: "Support the Project",
       lead:
-        "A federated messenger gets stronger with every independent node operator, tester, contributor, and supporter.",
+        "Sparrow is independent, open-source software built without ads, tracking, or venture lock-in. Your support funds test servers, development, and an upcoming third-party security audit.",
+      actions: {
+        sponsor: "Become a Supporter",
+        coffee: "Buy Me a Coffee",
+        contact: "Collaborate / Contact"
+      },
+      links: {
+        contributeCode: "Contribute Code",
+        reportIssues: "Report Issues",
+        security: "Security & Threat Model"
+      },
       host: {
         badge: "Infrastructure",
         title: "Host a Community Node",
@@ -172,6 +222,7 @@ export const TRANSLATIONS = {
     footer: {
       tagline: "End-to-end encrypted messaging on a federated network.",
       copyright: "© 2026 Christian Bergmann · Sparrow",
+      contact: "Contact",
       linksTitle: "Project",
       docsTitle: "Documentation",
       linkGithub: "GitHub Repository",
@@ -198,7 +249,12 @@ export const TRANSLATIONS = {
         "Add your GitHub Sponsors, Liberapay, Patreon, or Open Collective URL inside SPARROW_CONFIG.supporter in config.js.",
       contactTitle: "Collaboration Contact Placeholder",
       contactBody:
-        "Set your preferred contact email or Matrix/chat handle inside SPARROW_CONFIG.contact in config.js, or direct collaborators to GitHub Issues."
+        "Set your preferred contact email or Matrix/chat handle inside SPARROW_CONFIG.contact in config.js, or direct collaborators to GitHub Issues.",
+      contactAction: "GitHub Issues"
+    },
+    common: {
+      copy: "Copy",
+      copied: "Copied!"
     }
   },
   de: {
@@ -207,25 +263,41 @@ export const TRANSLATIONS = {
       "Ende-zu-Ende-verschlüsselter Messenger auf einem föderierten, selbst hostbaren Netzwerk aus Kotlin Multiplatform und Ktor.",
     nav: {
       features: "Funktionen",
+      transport: "Transport",
+      hostServer: "Server hosten",
+      docs: "Dokumentation",
+      home: "Sparrow-Startseite",
+      mainNavigation: "Hauptnavigation",
+      mobileNavigation: "Mobile Navigation",
+      languageSwitch: "Sprachauswahl",
+      toggleNavigation: "Navigation umschalten",
       howItWorks: "Funktionsweise",
       video: "Video",
-      beta: "Beta-Test",
+      beta: "Android-Beta",
       support: "Unterstützen",
       github: "GitHub"
     },
     hero: {
       badge: "Öffentliche Beta · v1.0.0-beta.1 · Android",
       title: "Nachrichten, die keine Spur hinterlassen.",
+      logoAria: "Interaktives Sparrow-Logo",
       subtitle:
         "Ende-zu-Ende-verschlüsseltes Messaging mit Kotlin Multiplatform und einem föderierten, unabhängig betreibbaren Netzwerk aus Community Nodes – ohne Abhängigkeit von einem einzelnen Betreiber.",
       ctaBeta: "Am Beta-Test teilnehmen",
+      ctaDownload: "APK herunterladen →",
       ctaGithub: "Auf GitHub ansehen",
       ctaVideo: "Produktvideo ansehen",
       replayBtn: "Anflug wiederholen",
       sendHint: "Klicke auf Sparrow",
       pillCrypto: "libsodium E2EE",
       pillOnion: "1–5 Hop Onion-Circuits",
-      pillFederated: "Selbst hostbare Nodes"
+      pillFederated: "Selbst hostbare Nodes",
+      stack: {
+        crypto: "libsodium E2EE",
+        onion: "1–5-Hop-Onion-Routing",
+        mailboxes: "256-KiB-Postfächer mit Padding",
+        kotlin: "Kotlin Multiplatform"
+      }
     },
     about: {
       eyebrow: "Was ist Sparrow?",
@@ -279,54 +351,77 @@ export const TRANSLATIONS = {
       docsLink: "„What makes Sparrow different?“ lesen"
     },
     comm: {
-      eyebrow: "Wie die Kommunikation funktioniert",
-      title: "In Schichten verpackt. Zugestellt, ohne beide Enden preiszugeben.",
+      eyebrow: "01 / Metadatensparender Transport",
+      title: "In Schichten verpackt. Blind zugestellt.",
       lead:
         "Jede Nachricht bleibt Ende-zu-Ende-verschlüsselt auf deinem Gerät, wandert durch Relays verschiedener Betreiber und landet in einer vom Empfänger gewählten Mailbox.",
-      hopsLabel: "Circuit-Hops:",
-      decoysLabel: "Tarnpakete (Decoys)",
+      hopsLabel: "Hops:",
+      relayHops: "Relay-Hops",
+      decoysLabel: "Tarnverkehr",
       play: "Start",
       pause: "Pause",
       canvasLabels: {
         you: "Du",
-        homeNode: "Home-Node",
+        homeNode: "Heimknoten",
         relay: "Relay",
-        mailbox: "Mailbox-Node",
-        controlPlane: "Control Plane (2-Hop-Discovery)",
-        decoy: "Decoy",
+        mailbox: "Mailbox-Knoten",
+        controlPlane: "Steuerung (2-Hop-Suche)",
+        decoy: "Tarnpaket",
         layersRemaining: "Onion-Schichten",
         e2eeLocked: "E2EE-Paket gespeichert"
       },
       steps: [
         {
-          title: "1. Verschlüsseln & Padding auf dem Gerät",
-          desc: "Deine App verschlüsselt die Nachricht lokal (libsodium) und füllt sie auf feste Größenklassen (1–256 KiB) auf, um Paketgrößen zu vereinheitlichen."
+          title: "01. Verschlüsseln & Padding",
+          desc: "Das Gerät verschlüsselt Nachrichten und füllt sie auf feste Größenklassen von 1–256 KiB auf."
         },
         {
-          title: "2. Multi-Hop Onion-Circuit",
-          desc: "Die Anfrage wird in Schichten verpackt und über 1–5 Relays unterschiedlicher Betreiber gesendet. Jedes Relay entfernt eine Schicht und kennt nur den nächsten Schritt."
+          title: "02. Onion-Hops",
+          desc: "Jedes Relay entfernt eine Schicht und kennt nur den nächsten Hop."
         },
         {
-          title: "3. Empfänger-Mailbox & Decoys",
-          desc: "Der verschlüsselte Umschlag landet ohne Absender- oder Empfänger-ID in der Mailbox. Optionale Tarnpakete verschleiern Timing-Muster."
+          title: "03. Offline-Postfach",
+          desc: "Wird ohne Absender- oder Empfänger-ID im Postfach gespeichert."
         },
         {
-          title: "4. Föderierte Suche & Failover",
-          desc: "Control Planes liefern signierte Node-Verzeichnisse und Alias-Routen (über 2 Relays abgefragt). Fällt ein Node aus, wechselt die App automatisch."
+          title: "04. Failover",
+          desc: "Signierte Steuerungsebenen umgehen ausgefallene Knoten."
         }
       ],
       docsLink: "Transport-Architektur in den Docs ansehen"
+    },
+    hosting: {
+      eyebrow: "02 / Föderation",
+      title: "Einen Community-Node hosten",
+      lead:
+        "Jeder unabhängige Relay- und Mailbox-Betreiber stärkt die Vielfalt der Circuits. Betreibe den kombinierten Ktor- und Caddy-Docker-Stack auf einem Linux-, macOS- oder Windows-Host mit geöffneten Ports 80 und 443.",
+      cloneTitle: "Server-Paket klonen",
+      configureTitle: "Node konfigurieren",
+      buildTitle: "Erstellen & starten",
+      verifyTitle: "Endpunkt prüfen",
+      terminal: "Terminal",
+      configureNoteBefore: "Kopiere ",
+      configureNoteMiddle: " nach ",
+      configureNoteAfter:
+        " und trage deine öffentliche Domain ein, damit Caddy automatisch TLS-Zertifikate ausstellen kann.",
+      buildNote:
+        "Startet den Ktor-Relay-/Mailbox-Dienst zusammen mit dem Caddy-Reverse-Proxy im Hintergrund.",
+      verifyNoteBefore: "Liefert ",
+      verifyNoteAfter:
+        " sowie den Status deiner aktiven Gateway-, Föderations- und Mailbox-Dienste zurück.",
+      docsLink: "Vollständige Hosting-Dokumentation lesen →"
     },
     video: {
       eyebrow: "Produktvideo",
       title: "Sparrow in Aktion",
       lead:
         "Ein Einblick in die Android-Beta, die interaktive Onboarding-Tour, verschlüsselte Chats und das Onion-Routing.",
+      iframeTitle: "Sparrow-Produktvideo",
       posterBadge: "Sparrow 1.0 Beta Walkthrough",
-      posterTitle: "Sparrow Produktvideo ansehen",
+      posterTitle: "Den Beta-Walkthrough von Sparrow ansehen",
       posterSubtitle:
-        "Klicke, um den datenschutzfreundlichen YouTube-Embed (youtube-nocookie.com) zu laden, oder öffne das Video direkt auf YouTube.",
-      playBtn: "Video laden & abspielen",
+        "Datenschutzfreundlicher YouTube-Embed (wird erst nach einem Klick geladen).",
+      playBtn: "▶ Video laden & abspielen",
       watchExternal: "Auf YouTube ansehen"
     },
     beta: {
@@ -335,15 +430,29 @@ export const TRANSLATIONS = {
       lead:
         "Sparrow 1.0.0-beta.1 steht für Android (API 29+) bereit. Teste föderiertes Messaging, probiere Multi-Hop-Onion-Circuits aus und hilf mit Feedback für Version 1.0.",
       note: "Beta-Hinweis: Erstelle ein verschlüsseltes Identitäts-Backup (Einstellungen → Identität), um deine Schlüssel bei Updates wiederherstellen zu können.",
+      deviceNoteBefore:
+        "Verfügbar für Android 10+ (API 29). Die Schlüssel werden ausschließlich auf deinem Gerät erstellt. Sichere sie unter ",
+      identityPath: "Einstellungen → Identität",
+      deviceNoteAfter: ", damit du sie nach Beta-Updates wiederherstellen kannst.",
       ctaBeta: "Am Beta-Test teilnehmen (Platzhalter)",
       ctaReleases: "GitHub Releases (APK)",
       placeholderTag: "Platzhalter-Link · konfigurierbar in config.js"
     },
     support: {
-      eyebrow: "Projekt unterstützen",
-      title: "Hilf mit, Sparrow unabhängig zu halten",
+      eyebrow: "04 / Community",
+      title: "Projekt unterstützen",
       lead:
-        "Ein föderierter Messenger wird mit jedem unabhängigen Serverbetreiber, Tester, Mitwirkenden und Unterstützer stärker.",
+        "Sparrow ist unabhängige Open-Source-Software ohne Werbung, Tracking oder Investorenbindung. Deine Unterstützung finanziert Testserver, Entwicklung und ein geplantes unabhängiges Sicherheitsaudit.",
+      actions: {
+        sponsor: "Supporter werden",
+        coffee: "Buy Me a Coffee",
+        contact: "Mitwirken / Kontakt"
+      },
+      links: {
+        contributeCode: "Code beitragen",
+        reportIssues: "Fehler melden",
+        security: "Sicherheit & Bedrohungsmodell"
+      },
       host: {
         badge: "Infrastruktur",
         title: "Einen Community-Node hosten",
@@ -374,6 +483,7 @@ export const TRANSLATIONS = {
     footer: {
       tagline: "Ende-zu-Ende-verschlüsseltes Messaging in einem föderierten Netzwerk.",
       copyright: "© 2026 Christian Bergmann · Sparrow",
+      contact: "Kontakt",
       linksTitle: "Projekt",
       docsTitle: "Dokumentation",
       linkGithub: "GitHub-Repository",
@@ -400,7 +510,12 @@ export const TRANSLATIONS = {
         "Hinterlege deine URL zu GitHub Sponsors, Liberapay, Patreon oder Open Collective in config.js unter SPARROW_CONFIG.supporter.",
       contactTitle: "Platzhalter für Kontakt-Link",
       contactBody:
-        "Trage deine gewünschte Kontakt-E-Mail oder Adresse in config.js unter SPARROW_CONFIG.contact ein oder leite Mitwirkende direkt zu GitHub Issues."
+        "Trage deine gewünschte Kontakt-E-Mail oder Adresse in config.js unter SPARROW_CONFIG.contact ein oder leite Mitwirkende direkt zu GitHub Issues.",
+      contactAction: "GitHub-Issues"
+    },
+    common: {
+      copy: "Kopieren",
+      copied: "Kopiert!"
     }
   }
 };

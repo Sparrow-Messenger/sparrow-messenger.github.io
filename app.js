@@ -34,11 +34,22 @@ function applyTranslations(lang) {
     }
   });
 
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
+    const val = getNested(dict, el.getAttribute("data-i18n-aria-label"));
+    if (typeof val === "string") {
+      el.setAttribute("aria-label", val);
+    }
+  });
+
   document.querySelectorAll(".lang-btn").forEach((btn) => {
     btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
   });
 
   updatePlayButtonLabel();
+  if (activePlaceholderType) renderPlaceholderModal(activePlaceholderType);
+
+  const videoIframe = document.querySelector("#video-frame iframe");
+  if (videoIframe) videoIframe.title = dict.video.iframeTitle;
 }
 
 function wireConfigLinks() {
@@ -136,6 +147,16 @@ document.querySelectorAll(".lang-btn").forEach((btn) => {
   });
 });
 
+document.querySelectorAll(".copy-btn").forEach((btn) => {
+  btn.addEventListener("click", async () => {
+    await navigator.clipboard.writeText(btn.dataset.copy);
+    btn.textContent = TRANSLATIONS[currentLang].common.copied;
+    setTimeout(() => {
+      btn.textContent = TRANSLATIONS[currentLang].common.copy;
+    }, 1500);
+  });
+});
+
 // Mobile menu
 const menuToggle = document.getElementById("menu-toggle");
 const mobileNav = document.getElementById("mobile-nav");
@@ -160,7 +181,7 @@ if (loadVideoBtn && videoFrame && videoPoster) {
   loadVideoBtn.addEventListener("click", () => {
     const iframe = document.createElement("iframe");
     iframe.src = `https://www.youtube-nocookie.com/embed/${SPARROW_CONFIG.youtubeVideoId}?autoplay=1&rel=0&origin=${encodeURIComponent(window.location.origin)}`;
-    iframe.title = "Sparrow Product Video";
+    iframe.title = TRANSLATIONS[currentLang].video.iframeTitle;
     iframe.referrerPolicy = "strict-origin-when-cross-origin";
     iframe.allow =
       "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
@@ -176,8 +197,9 @@ const modalTitle = document.getElementById("modal-title");
 const modalBody = document.getElementById("modal-body");
 const modalSecondary = document.getElementById("modal-secondary-link");
 const modalClose = document.getElementById("modal-close-btn");
+let activePlaceholderType = null;
 
-function openPlaceholderModal(type) {
+function renderPlaceholderModal(type) {
   const m = TRANSLATIONS[currentLang].modal;
   modalSecondary.style.display = "none";
 
@@ -196,16 +218,21 @@ function openPlaceholderModal(type) {
   } else if (type === "contact") {
     modalTitle.textContent = m.contactTitle;
     modalBody.textContent = m.contactBody;
-    modalSecondary.textContent = "GitHub Issues";
+    modalSecondary.textContent = m.contactAction;
     modalSecondary.href = SPARROW_CONFIG.githubIssuesUrl;
     modalSecondary.style.display = "inline-flex";
   }
+}
 
+function openPlaceholderModal(type) {
+  activePlaceholderType = type;
+  renderPlaceholderModal(type);
   modal.classList.add("open");
   modalClose.focus();
 }
 
 function closePlaceholderModal() {
+  activePlaceholderType = null;
   modal.classList.remove("open");
 }
 

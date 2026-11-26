@@ -18,21 +18,21 @@
 <body>
   <header class="site-header">
     <div class="nav-inner">
-      <a href="#top" class="brand" aria-label="Sparrow Home">
+      <a href="#top" class="brand" aria-label="Sparrow Home" data-i18n-aria-label="nav.home">
         <img src="./favicon.svg" alt="" width="26" height="26" />
         <span>Sparrow</span>
       </a>
 
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#how-it-works">Transport</a>
-        <a href="#host-server">Host a Server</a>
-        <a href="#beta">Android Beta</a>
-        <a href="#support">Support</a>
-        <a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer">Docs</a>
+      <nav class="nav-links" aria-label="Main navigation" data-i18n-aria-label="nav.mainNavigation">
+        <a href="#how-it-works" data-i18n="nav.transport">Transport</a>
+        <a href="#host-server" data-i18n="nav.hostServer">Host a Server</a>
+        <a href="#beta" data-i18n="nav.beta">Android Beta</a>
+        <a href="#support" data-i18n="nav.support">Support</a>
+        <a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer" data-i18n="nav.docs">Docs</a>
       </nav>
 
       <div class="nav-actions">
-        <div class="lang-toggle" role="group" aria-label="Language switch">
+        <div class="lang-toggle" role="group" aria-label="Language switch" data-i18n-aria-label="nav.languageSwitch">
           <button type="button" class="lang-btn" data-lang="en">EN</button>
           <button type="button" class="lang-btn" data-lang="de">DE</button>
         </div>
@@ -53,6 +53,7 @@
           class="menu-toggle"
           id="menu-toggle"
           aria-label="Toggle navigation"
+          data-i18n-aria-label="nav.toggleNavigation"
           aria-controls="mobile-nav"
           aria-expanded="false"
         >
@@ -63,12 +64,12 @@
       </div>
     </div>
 
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-      <a href="#how-it-works">Transport</a>
-      <a href="#host-server">Host a Server</a>
-      <a href="#beta">Android Beta</a>
-      <a href="#support">Support</a>
-      <a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer">Docs</a>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" data-i18n-aria-label="nav.mobileNavigation">
+      <a href="#how-it-works" data-i18n="nav.transport">Transport</a>
+      <a href="#host-server" data-i18n="nav.hostServer">Host a Server</a>
+      <a href="#beta" data-i18n="nav.beta">Android Beta</a>
+      <a href="#support" data-i18n="nav.support">Support</a>
+      <a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer" data-i18n="nav.docs">Docs</a>
     </nav>
   </header>
 
@@ -76,7 +77,7 @@
     <!-- BAND 1: HERO -->
     <section class="band band-base hero">
       <div class="container hero-center">
-        <div class="logo-stage" id="logo-stage" role="button" tabindex="0" aria-label="Interactive Sparrow Logo">
+        <div class="logo-stage" id="logo-stage" role="button" tabindex="0" aria-label="Interactive Sparrow Logo" data-i18n-aria-label="hero.logoAria">
           <canvas id="sparrow-hero-canvas" width="240" height="240"></canvas>
         </div>
 
@@ -87,7 +88,7 @@
 
         <h1 data-i18n="hero.title">Messages that leave no trail.</h1>
 
-        <p class="hero-sub">
+        <p class="hero-sub" data-i18n="hero.subtitle">
           Device-side libsodium encryption routed through 1–5 hop federated Community Nodes. Zero central servers. Zero push services.
         </p>
 
@@ -95,19 +96,19 @@
           <a href="#beta-placeholder" class="btn btn-primary" data-placeholder="betaTest" data-i18n="hero.ctaBeta">
             Join Beta Test
           </a>
-          <a class="btn btn-secondary" data-config-href="githubReleasesUrl" target="_blank" rel="noopener noreferrer">
+          <a class="btn btn-secondary" data-config-href="githubReleasesUrl" target="_blank" rel="noopener noreferrer" data-i18n="hero.ctaDownload">
             Download APK →
           </a>
         </div>
 
         <div class="stack-bar">
-          <span>libsodium E2EE</span>
+          <span data-i18n="hero.stack.crypto">libsodium E2EE</span>
           <span>·</span>
-          <span>1–5 Hop Onion</span>
+          <span data-i18n="hero.stack.onion">1–5 Hop Onion</span>
           <span>·</span>
-          <span>256 KiB Padded Mailboxes</span>
+          <span data-i18n="hero.stack.mailboxes">256 KiB Padded Mailboxes</span>
           <span>·</span>
-          <span>Kotlin Multiplatform</span>
+          <span data-i18n="hero.stack.kotlin">Kotlin Multiplatform</span>
         </div>
       </div>
     </section>
@@ -116,15 +117,15 @@
     <section class="band band-alt" id="how-it-works">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">01 / Zero-Metadata Transport</span>
-          <h2>Wrapped in layers. Delivered blind.</h2>
+          <span class="eyebrow" data-i18n="comm.eyebrow">01 / Zero-Metadata Transport</span>
+          <h2 data-i18n="comm.title">Wrapped in layers. Delivered blind.</h2>
         </div>
 
         <div class="diagram-wrap">
           <div class="diagram-bar">
             <div class="toolbar-group">
-              <span>Hops:</span>
-              <div class="segmented" role="group" aria-label="Relay hops">
+              <span data-i18n="comm.hopsLabel">Hops:</span>
+              <div class="segmented" role="group" aria-label="Relay hops" data-i18n-aria-label="comm.relayHops">
                 <button type="button" class="seg-btn active" data-hops="2">2</button>
                 <button type="button" class="seg-btn" data-hops="3">3</button>
                 <button type="button" class="seg-btn" data-hops="5">5</button>
@@ -133,7 +134,7 @@
 
             <label class="switch-label">
               <input type="checkbox" id="decoys-toggle" checked />
-              <span>Decoy traffic</span>
+              <span data-i18n="comm.decoysLabel">Decoy traffic</span>
             </label>
 
             <button type="button" class="btn-inline" id="onion-play-btn">Pause</button>
@@ -144,20 +145,20 @@
 
         <div class="step-row" id="comm-steps">
           <button type="button" class="step-card active" data-step="0">
-            <strong>01. Seal &amp; Pad</strong>
-            <span>Device encrypts &amp; pads to fixed 1–256 KiB classes.</span>
+            <strong data-i18n="comm.steps.0.title">01. Seal &amp; Pad</strong>
+            <span data-i18n="comm.steps.0.desc">Device encrypts &amp; pads to fixed 1–256 KiB classes.</span>
           </button>
           <button type="button" class="step-card" data-step="1">
-            <strong>02. Onion Hops</strong>
-            <span>Each relay peels one layer and knows only the next hop.</span>
+            <strong data-i18n="comm.steps.1.title">02. Onion Hops</strong>
+            <span data-i18n="comm.steps.1.desc">Each relay peels one layer and knows only the next hop.</span>
           </button>
           <button type="button" class="step-card" data-step="2">
-            <strong>03. Dead-Drop</strong>
-            <span>Stored in recipient mailbox with zero sender/recipient IDs.</span>
+            <strong data-i18n="comm.steps.2.title">03. Dead-Drop</strong>
+            <span data-i18n="comm.steps.2.desc">Stored in recipient mailbox with zero sender/recipient IDs.</span>
           </button>
           <button type="button" class="step-card" data-step="3">
-            <strong>04. Failover</strong>
-            <span>Signed Control Planes route around offline nodes.</span>
+            <strong data-i18n="comm.steps.3.title">04. Failover</strong>
+            <span data-i18n="comm.steps.3.desc">Signed Control Planes route around offline nodes.</span>
           </button>
         </div>
       </div>
@@ -166,19 +167,19 @@
     <section class="band band-base" id="host-server">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">02 / Federation</span>
-          <h2>Host a Community Node</h2>
-          <p class="section-lead">
+          <span class="eyebrow" data-i18n="hosting.eyebrow">02 / Federation</span>
+          <h2 data-i18n="hosting.title">Host a Community Node</h2>
+          <p class="section-lead" data-i18n="hosting.lead">
             Every independent relay and mailbox operator strengthens circuit diversity. Deploy the unified Ktor + Caddy Docker stack on any Linux, macOS, or Windows host with ports 80 and 443 open.
           </p>
         </div>
 
         <div class="wb-step">
-          <h3>Clone the Server Bundle</h3>
+          <h3 data-i18n="hosting.cloneTitle">Clone the Server Bundle</h3>
           <div class="terminal">
             <div class="terminal-top">
-              <span>Terminal</span>
-              <button type="button" class="copy-btn" data-copy="git clone https://github.com && cd Sparrow/server">Copy</button>
+              <span data-i18n="hosting.terminal">Terminal</span>
+              <button type="button" class="copy-btn" data-copy="git clone https://github.com && cd Sparrow/server" data-i18n="common.copy">Copy</button>
             </div>
             <pre><code>git clone https://github.com
 cd Sparrow/server</code></pre>
@@ -186,48 +187,48 @@ cd Sparrow/server</code></pre>
         </div>
 
         <div class="wb-step">
-          <h3>Configure Your Node</h3>
+          <h3 data-i18n="hosting.configureTitle">Configure Your Node</h3>
           <p class="file-caption"><strong>server/.env</strong></p>
           <div class="terminal">
             <div class="terminal-top">
               <span>.env</span>
-              <button type="button" class="copy-btn" data-copy="cp .env.example .env">Copy</button>
+              <button type="button" class="copy-btn" data-copy="cp .env.example .env" data-i18n="common.copy">Copy</button>
             </div>
             <pre><code>SPARROW_DOMAIN=node.example.org
 SPARROW_OPERATOR_NAME="My Community Node"
 SPARROW_CONTROL_PLANES=https://sparrow-messenger.org</code></pre>
           </div>
           <p class="step-note">
-            Copy <code>.env.example</code> to <code>.env</code> and set your public domain so Caddy can automatically provision TLS certificates.
+            <span data-i18n="hosting.configureNoteBefore">Copy </span><code>.env.example</code><span data-i18n="hosting.configureNoteMiddle"> to </span><code>.env</code><span data-i18n="hosting.configureNoteAfter"> and set your public domain so Caddy can automatically provision TLS certificates.</span>
           </p>
         </div>
 
         <div class="wb-step">
-          <h3>Build &amp; Launch</h3>
+          <h3 data-i18n="hosting.buildTitle">Build &amp; Launch</h3>
           <div class="terminal">
             <div class="terminal-top">
-              <span>Terminal</span>
-              <button type="button" class="copy-btn" data-copy="docker compose up -d --build">Copy</button>
+              <span data-i18n="hosting.terminal">Terminal</span>
+              <button type="button" class="copy-btn" data-copy="docker compose up -d --build" data-i18n="common.copy">Copy</button>
             </div>
             <pre><code>docker compose up -d --build</code></pre>
           </div>
-          <p class="step-note">
+          <p class="step-note" data-i18n="hosting.buildNote">
             Starts the Ktor relay/mailbox service alongside Caddy reverse proxy in the background.
           </p>
         </div>
 
         <div class="wb-step">
-          <h3>Verify Your Endpoint</h3>
+          <h3 data-i18n="hosting.verifyTitle">Verify Your Endpoint</h3>
           <div class="terminal">
             <div class="terminal-top">
-              <span>Terminal</span>
-              <button type="button" class="copy-btn" data-copy="curl -I https://example.org">Copy</button>
+              <span data-i18n="hosting.terminal">Terminal</span>
+              <button type="button" class="copy-btn" data-copy="curl -I https://example.org" data-i18n="common.copy">Copy</button>
             </div>
             <pre><code>curl -I https://example.org</code></pre>
           </div>
           <p class="step-note">
-            Returns <code>HTTP/2 200</code> with your live gateway, federation, and mailbox status page.
-            <a data-config-href="docsServerHostingUrl" target="_blank" rel="noopener noreferrer">Read full hosting docs →</a>
+            <span data-i18n="hosting.verifyNoteBefore">Returns </span><code>HTTP/2 200</code><span data-i18n="hosting.verifyNoteAfter"> with your live gateway, federation, and mailbox status page. </span>
+            <a data-config-href="docsServerHostingUrl" target="_blank" rel="noopener noreferrer" data-i18n="hosting.docsLink">Read full hosting docs →</a>
           </p>
         </div>
       </div>
@@ -237,10 +238,10 @@ SPARROW_CONTROL_PLANES=https://sparrow-messenger.org</code></pre>
     <section class="band band-alt" id="beta">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">03 / Public Beta</span>
-          <h2>Try Sparrow on Android</h2>
+          <span class="eyebrow" data-i18n="beta.eyebrow">03 / Public Beta</span>
+          <h2 data-i18n="beta.title">Try Sparrow on Android</h2>
           <p class="section-lead">
-            Available for Android 10+ (API 29). Keys are generated strictly on your device—back them up under <code>Settings → Identity</code> to restore across beta releases.
+            <span data-i18n="beta.deviceNoteBefore">Available for Android 10+ (API 29). Keys are generated strictly on your device—back them up under </span><code data-i18n="beta.identityPath">Settings → Identity</code><span data-i18n="beta.deviceNoteAfter"> to restore across beta releases.</span>
           </p>
         </div>
 
@@ -248,16 +249,16 @@ SPARROW_CONTROL_PLANES=https://sparrow-messenger.org</code></pre>
           <a href="#beta-placeholder" class="btn btn-primary" data-placeholder="betaTest" data-i18n="beta.ctaBeta">
             Join Beta Test
           </a>
-          <a class="btn btn-secondary" data-config-href="githubReleasesUrl" target="_blank" rel="noopener noreferrer">
+          <a class="btn btn-secondary" data-config-href="githubReleasesUrl" target="_blank" rel="noopener noreferrer" data-i18n="beta.ctaReleases">
             Download APK (GitHub Releases) →
           </a>
         </div>
 
         <div class="video-frame" id="video-frame">
           <div class="video-poster" id="video-poster">
-            <h3>Watch the 1.0 Beta Walkthrough</h3>
-            <p>Privacy-enhanced YouTube embed (loads only when clicked).</p>
-            <button type="button" class="btn btn-primary" id="load-video-btn">
+            <h3 data-i18n="video.posterTitle">Watch the 1.0 Beta Walkthrough</h3>
+            <p data-i18n="video.posterSubtitle">Privacy-enhanced YouTube embed (loads only when clicked).</p>
+            <button type="button" class="btn btn-primary" id="load-video-btn" data-i18n="video.playBtn">
               ▶ Load &amp; Play Video
             </button>
           </div>
@@ -268,30 +269,30 @@ SPARROW_CONTROL_PLANES=https://sparrow-messenger.org</code></pre>
     <!-- BAND 5: SUPPORT THE PROJECT (WEBPACK-STYLE) -->
     <section class="band band-base support-band" id="support">
       <div class="container support-center">
-        <span class="eyebrow">04 / Community</span>
-        <h2>Support the Project</h2>
-        <p class="support-lead">
+        <span class="eyebrow" data-i18n="support.eyebrow">04 / Community</span>
+        <h2 data-i18n="support.title">Support the Project</h2>
+        <p class="support-lead" data-i18n="support.lead">
           Sparrow is independent, open-source software built without ads, tracking, or venture lock-in. Your support funds test servers, development, and an upcoming third-party security audit.
         </p>
 
         <div class="hero-actions" style="margin-bottom: 1.5rem;">
-          <a href="#supporter-placeholder" class="btn btn-primary" data-placeholder="supporter">
+          <a href="#supporter-placeholder" class="btn btn-primary" data-placeholder="supporter" data-i18n="support.actions.sponsor">
             Become a Supporter
           </a>
-          <a href="#coffee-placeholder" class="btn btn-secondary" data-placeholder="buyMeACoffee">
+          <a href="#coffee-placeholder" class="btn btn-secondary" data-placeholder="buyMeACoffee" data-i18n="support.actions.coffee">
             Buy Me a Coffee
           </a>
-          <a href="#contact-placeholder" class="btn btn-secondary" data-placeholder="contact">
+          <a href="#contact-placeholder" class="btn btn-secondary" data-placeholder="contact" data-i18n="support.actions.contact">
             Collaborate / Contact
           </a>
         </div>
 
         <div class="stack-bar">
-          <a data-config-href="githubRepoUrl" target="_blank" rel="noopener noreferrer">Contribute Code</a>
+          <a data-config-href="githubRepoUrl" target="_blank" rel="noopener noreferrer" data-i18n="support.links.contributeCode">Contribute Code</a>
           <span>·</span>
-          <a data-config-href="githubIssuesUrl" target="_blank" rel="noopener noreferrer">Report Issues</a>
+          <a data-config-href="githubIssuesUrl" target="_blank" rel="noopener noreferrer" data-i18n="support.links.reportIssues">Report Issues</a>
           <span>·</span>
-          <a data-config-href="docsWhySparrowUrl" target="_blank" rel="noopener noreferrer">Security &amp; Threat Model</a>
+          <a data-config-href="docsWhySparrowUrl" target="_blank" rel="noopener noreferrer" data-i18n="support.links.security">Security &amp; Threat Model</a>
         </div>
       </div>
     </section>
@@ -302,9 +303,9 @@ SPARROW_CONTROL_PLANES=https://sparrow-messenger.org</code></pre>
       <span>© 2026 Christian Bergmann · Sparrow</span>
       <div class="footer-links">
         <a data-config-href="githubRepoUrl" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer">Docs</a>
-        <a href="#contact-placeholder" data-placeholder="contact">Contact</a>
-        <a href="#supporter-placeholder" data-placeholder="supporter">Support</a>
+        <a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer" data-i18n="nav.docs">Docs</a>
+        <a href="#contact-placeholder" data-placeholder="contact" data-i18n="footer.contact">Contact</a>
+        <a href="#supporter-placeholder" data-placeholder="supporter" data-i18n="nav.support">Support</a>
       </div>
     </div>
   </footer>
@@ -315,21 +316,11 @@ SPARROW_CONTROL_PLANES=https://sparrow-messenger.org</code></pre>
       <p id="modal-body"></p>
       <div class="modal-actions">
         <a id="modal-secondary-link" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer" style="display: none;"></a>
-        <button type="button" class="btn btn-primary btn-sm" id="modal-close-btn">Close</button>
+        <button type="button" class="btn btn-primary btn-sm" id="modal-close-btn" data-i18n="modal.close">Close</button>
       </div>
     </div>
   </div>
 
   <script type="module" src="./app.js"></script>
-  <script>
-    document.querySelectorAll(".copy-btn").forEach((btn) => {
-      btn.addEventListener("click", async () => {
-        await navigator.clipboard.writeText(btn.dataset.copy);
-        const orig = btn.textContent;
-        btn.textContent = "Copied!";
-        setTimeout(() => (btn.textContent = orig), 1500);
-      });
-    });
-  </script>
 </body>
 </html>
