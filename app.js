@@ -159,8 +159,9 @@ const videoPoster = document.getElementById("video-poster");
 if (loadVideoBtn && videoFrame && videoPoster) {
   loadVideoBtn.addEventListener("click", () => {
     const iframe = document.createElement("iframe");
-    iframe.src = `https://www.youtube-nocookie.com/embed/${SPARROW_CONFIG.youtubeVideoId}?autoplay=1&rel=0`;
+    iframe.src = `https://www.youtube-nocookie.com/embed/${SPARROW_CONFIG.youtubeVideoId}?autoplay=1&rel=0&origin=${encodeURIComponent(window.location.origin)}`;
     iframe.title = "Sparrow Product Video";
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
     iframe.allow =
       "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
     iframe.allowFullscreen = true;
@@ -258,7 +259,7 @@ if ("IntersectionObserver" in window) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute("id");
-          document.querySelectorAll(".nav-links a").forEach((a) => {
+          document.querySelectorAll(".nav-links a, .mobile-nav a").forEach((a) => {
             a.classList.toggle("active", a.getAttribute("href") === `#${id}`);
           });
         }

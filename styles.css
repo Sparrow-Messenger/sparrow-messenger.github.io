@@ -121,6 +121,30 @@ code {
 
 .icon-link:hover { color: var(--primary); }
 
+.menu-toggle,
+.mobile-nav {
+  display: none;
+}
+
+.menu-toggle {
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--outline-variant);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
 /* Webpack-Style Alternating Surface Bands — Zero Horizontal Lines */
 .band {
   padding: 5.25rem 0;
@@ -485,6 +509,13 @@ h1 {
   text-align: center;
 }
 
+.video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .video-poster h3 {
   font-size: 1.25rem;
   margin: 0 0 0.35rem;
@@ -590,5 +621,29 @@ h1 {
 @media (max-width: 680px) {
   .nav-links {
     display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .mobile-nav.open {
+    display: flex;
+    flex-direction: column;
+    width: min(820px, 100% - 2.5rem);
+    margin: 0 auto;
+    padding-bottom: 0.75rem;
+  }
+
+  .mobile-nav a {
+    padding: 0.7rem 0;
+    border-top: 1px solid var(--outline-variant);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .mobile-nav a:hover,
+  .mobile-nav a.active {
+    color: var(--primary);
   }
 }
