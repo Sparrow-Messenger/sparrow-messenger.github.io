@@ -162,7 +162,7 @@ export const TRANSLATIONS = {
     },
     contribute: {
       eyebrow: "03 / Contribute",
-      title: "Contribute",
+      title: "Help to make Sparrow better",
       lead:
         "Sparrow is built in the open, and its future depends on people taking part. You don’t need to be a developer to help: you can run a server, improve the app, test new changes, or help cover project costs. Choose what fits your skills and time.",
       impactTitle: "What your contribution makes possible",
@@ -386,7 +386,7 @@ export const TRANSLATIONS = {
     },
     contribute: {
       eyebrow: "03 / Beitragen",
-      title: "Beitragen",
+      title: "Hilf mit, Sparrow zu verbessern",
       lead:
         "Sparrow wird offen entwickelt und seine Zukunft hängt davon ab, dass Menschen mitmachen. Du musst nicht programmieren können: Du kannst einen Server betreiben, die App verbessern, neue Änderungen testen oder Kosten mittragen. Such dir aus, was zu deinen Fähigkeiten und deiner Zeit passt.",
       impactTitle: "Was dein Beitrag möglich macht",
