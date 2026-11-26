@@ -80,11 +80,10 @@ export function mountOnionAnimation(canvas, getLabels) {
     ctx.roundRect(x, y, w, h, r);
   }
 
-  function drawControlPlane(w, h, labels, time) {
+  function drawControlPlane(w, h, labels, time, points) {
     const cp = { x: CONTROL_PLANE_POS.x * w, y: CONTROL_PLANE_POS.y * h };
-    const relayNodes = NODE_LAYOUTS[hopCount];
-    const home = { x: relayNodes[1].x * w, y: relayNodes[1].y * h };
-    const relay2 = { x: relayNodes[2].x * w, y: relayNodes[2].y * h };
+    const home = points[1];
+    const relay2 = points[2];
 
     // Subtle discovery path from Home -> Relay2 -> Control Plane
     ctx.save();
@@ -92,15 +91,15 @@ export function mountOnionAnimation(canvas, getLabels) {
     ctx.strokeStyle = activeStep === 3 ? COLORS.tertiary : "rgba(102, 128, 149, 0.35)";
     ctx.lineWidth = activeStep === 3 ? 1.8 : 1.1;
     ctx.beginPath();
-    ctx.moveTo(home.x, home.y);
+    ctx.moveTo(home.px, home.py);
     ctx.lineTo(cp.x - 42, cp.y + 12);
-    ctx.moveTo(relay2.x, relay2.y);
+    ctx.moveTo(relay2.px, relay2.py);
     ctx.lineTo(cp.x + 42, cp.y + 12);
     ctx.stroke();
     ctx.restore();
 
     // Control Plane pill
-    const pillW = Math.min(188, w * 0.36);
+    const pillW = Math.min(188, w * (w < 430 ? 0.58 : 0.36));
     const pillH = 30;
     ctx.save();
     drawRoundedRect(cp.x - pillW / 2, cp.y - pillH / 2, pillW, pillH, 15);
@@ -111,10 +110,10 @@ export function mountOnionAnimation(canvas, getLabels) {
     ctx.stroke();
 
     ctx.fillStyle = activeStep === 3 ? COLORS.tertiary : COLORS.secondary;
-    ctx.font = "600 11px system-ui, -apple-system, sans-serif";
+    ctx.font = w < 430 ? "600 10px system-ui, -apple-system, sans-serif" : "600 11px system-ui, -apple-system, sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText(labels.controlPlane, cp.x, cp.y + 0.5);
+    ctx.fillText(labels.controlPlane, cp.x, cp.y + 0.5, pillW - 24);
 
     if (activeStep === 3) {
       const pulse = ((time % 1800) / 1800);
@@ -153,22 +152,26 @@ export function mountOnionAnimation(canvas, getLabels) {
     }
 
     const rawNodes = NODE_LAYOUTS[hopCount] || NODE_LAYOUTS[2];
+    const compact = w < 430;
     const points = rawNodes.map((n) => ({
       ...n,
       px: n.x * w,
-      py: n.y * h
+      py: (compact ? 0.2 + n.y * 0.5 : n.y) * h
     }));
 
-    drawControlPlane(w, h, labels, simTime);
+    drawControlPlane(w, h, labels, simTime, points);
 
     const hops = points.length - 1;
     const hopDuration = 1350;
     const moveDuration = 1050;
     const pauseDuration = 950;
     const cycleDuration = hops * hopDuration + pauseDuration;
-    const timeInCycle = simTime % cycleDuration;
+    const timeInCycle = Number.isFinite(simTime) ? simTime % cycleDuration : 0;
 
-    const currentHop = Math.min(hops - 1, Math.floor(timeInCycle / hopDuration));
+    const currentHop = Math.max(
+      0,
+      Math.min(points.length - 2, Math.floor(timeInCycle / hopDuration))
+    );
     const inHop = timeInCycle - currentHop * hopDuration;
     const moved = easeInOut(Math.min(1, Math.max(0, inHop / moveDuration)));
     const packetPos = {
@@ -291,10 +294,18 @@ export function mountOnionAnimation(canvas, getLabels) {
       else if (isMailbox) nodeTitle = labels.mailbox;
 
       ctx.fillStyle = isStart || isMailbox ? COLORS.text : COLORS.muted;
-      ctx.font = "600 11.5px system-ui, -apple-system, sans-serif";
-      ctx.textAlign = "center";
+      ctx.font = compact ? "600 10px system-ui, -apple-system, sans-serif" : "600 11.5px system-ui, -apple-system, sans-serif";
       ctx.textBaseline = "middle";
-      ctx.fillText(nodeTitle, pt.px, labelY);
+      if (compact && isStart) {
+        ctx.textAlign = "left";
+        ctx.fillText(nodeTitle, Math.max(12, pt.px), labelY);
+      } else if (compact && isMailbox) {
+        ctx.textAlign = "right";
+        ctx.fillText(nodeTitle, Math.min(w - 12, pt.px), labelY);
+      } else {
+        ctx.textAlign = "center";
+        ctx.fillText(nodeTitle, pt.px, labelY);
+      }
 
       if (pt.operator && w > 430) {
         ctx.fillStyle = COLORS.outline;
