@@ -581,6 +581,41 @@ a[aria-disabled="true"] {
   margin-top: 1.75rem;
 }
 
+.policy-band {
+  min-height: calc(100vh - 164px);
+  padding-top: 3.5rem;
+}
+
+.policy-content h1 {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  margin-bottom: 0.5rem;
+}
+
+.policy-date {
+  margin: 0 0 2.5rem;
+  color: var(--text-muted);
+}
+
+.policy-content h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.35rem;
+}
+
+.policy-content p,
+.policy-content li {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.policy-content ul {
+  padding-left: 1.4rem;
+}
+
+.policy-content li + li {
+  margin-top: 0.5rem;
+}
+
 .server-setup-steps {
   margin: 1.75rem 0 0 0.25rem;
   padding-left: 1.25rem;
