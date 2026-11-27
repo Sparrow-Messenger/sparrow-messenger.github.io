@@ -21,6 +21,128 @@ function getNested(object, path) {
   return path.split(".").reduce((value, part) => (value && value[part] !== undefined ? value[part] : null), object);
 }
 
+function appendReleaseNoteInline(parent, text) {
+  const fragment = document.createDocumentFragment();
+  const pattern = /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\(https:\/\/[^\s)]+\)|https:\/\/[^\s<]+)/g;
+  let lastIndex = 0;
+  let match;
+
+  function getLinkLabel(url, fallback) {
+    if (url.hostname !== "github.com") return fallback;
+
+    const pullRequest = url.pathname.match(/\/pull\/(\d+)\/?$/);
+    if (pullRequest) return `PR #${pullRequest[1]}`;
+
+    const issue = url.pathname.match(/\/issues\/(\d+)\/?$/);
+    if (issue) return `Issue #${issue[1]}`;
+
+    const comparison = url.pathname.match(/\/compare\/([^/]+)\/?$/);
+    if (comparison) return comparison[1].replace("...", " to ");
+
+    return fallback;
+  }
+
+  function appendLink(label, href) {
+    let url;
+    try {
+      url = new URL(href);
+    } catch {
+      fragment.appendChild(document.createTextNode(label));
+      return;
+    }
+
+    if (url.protocol !== "https:") {
+      fragment.appendChild(document.createTextNode(label));
+      return;
+    }
+
+    const link = document.createElement("a");
+    link.href = url.href;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = label === href ? getLinkLabel(url, label) : label;
+    fragment.appendChild(link);
+  }
+
+  while ((match = pattern.exec(text))) {
+    fragment.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+    const token = match[0];
+
+    if (token.startsWith("**")) {
+      const strong = document.createElement("strong");
+      strong.textContent = token.slice(2, -2);
+      fragment.appendChild(strong);
+    } else if (token.startsWith("`")) {
+      const code = document.createElement("code");
+      code.textContent = token.slice(1, -1);
+      fragment.appendChild(code);
+    } else if (token.startsWith("[")) {
+      const linkMatch = token.match(/^\[([^\]]+)\]\((https:\/\/[^\s)]+)\)$/);
+      if (linkMatch) appendLink(linkMatch[1], linkMatch[2]);
+      else fragment.appendChild(document.createTextNode(token));
+    } else {
+      let urlText = token;
+      while (/[.,;:!?]$/.test(urlText)) urlText = urlText.slice(0, -1);
+      appendLink(urlText, urlText);
+      fragment.appendChild(document.createTextNode(token.slice(urlText.length)));
+    }
+
+    lastIndex = pattern.lastIndex;
+  }
+
+  fragment.appendChild(document.createTextNode(text.slice(lastIndex)));
+  parent.appendChild(fragment);
+}
+
+function renderReleaseNotes(body) {
+  const container = document.createElement("div");
+  container.className = "changelog-release-body";
+  let activeList = null;
+  let activeListTag = "";
+
+  body.split(/\r?\n/).forEach((line) => {
+    const text = line.trim();
+    if (!text) {
+      activeList = null;
+      activeListTag = "";
+      return;
+    }
+
+    const headingMatch = text.match(/^(#{1,6})\s+(.+)$/);
+    if (headingMatch) {
+      activeList = null;
+      activeListTag = "";
+      const heading = document.createElement(headingMatch[1].length <= 2 ? "h3" : "h4");
+      appendReleaseNoteInline(heading, headingMatch[2]);
+      container.appendChild(heading);
+      return;
+    }
+
+    const listItemMatch = text.match(/^(?:([-*+])|(\d+)\.)\s+(.+)$/);
+    if (listItemMatch) {
+      const listTag = listItemMatch[2] ? "ol" : "ul";
+      if (!activeList || activeListTag !== listTag) {
+        activeList = document.createElement(listTag);
+        activeListTag = listTag;
+        container.appendChild(activeList);
+      }
+
+      const item = document.createElement("li");
+      appendReleaseNoteInline(item, listItemMatch[3]);
+      activeList.appendChild(item);
+      return;
+    }
+
+    activeList = null;
+    activeListTag = "";
+    const paragraph = document.createElement("p");
+    appendReleaseNoteInline(paragraph, text);
+    container.appendChild(paragraph);
+  });
+
+  return container;
+}
+
 function renderEntries(dictionary) {
   const entryList = document.getElementById("changelog-list");
   const status = document.getElementById("changelog-status");
@@ -71,13 +193,12 @@ function renderEntries(dictionary) {
     }
     item.appendChild(metadata);
 
-    if (release.body) {
+    if (typeof release.body === "string" && release.body.trim()) {
       const notes = document.createElement("details");
       notes.className = "changelog-release-notes";
       const summary = document.createElement("summary");
       summary.textContent = dictionary.releaseNotes;
-      const body = document.createElement("p");
-      body.textContent = release.body;
+      const body = renderReleaseNotes(release.body);
       notes.append(summary, body);
       item.appendChild(notes);
     }
