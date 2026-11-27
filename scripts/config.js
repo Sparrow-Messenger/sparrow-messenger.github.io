@@ -5,8 +5,6 @@
 export const SPARROW_CONFIG = {
   githubRepoUrl: "https://github.com/cbgm/Sparrow",
   githubIssuesUrl: "https://github.com/cbgm/Sparrow/issues",
-  githubReleasesUrl: "https://github.com/cbgm/Sparrow/releases",
-  githubReleasesApiUrl: "https://api.github.com/repos/cbgm/Sparrow/releases?per_page=20",
   websiteRepoUrl: "https://github.com/Sparrow-Messenger/sparrow-messenger",
 
   docsHomeUrl: "https://cbgm.github.io/Sparrow/",

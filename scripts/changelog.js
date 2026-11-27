@@ -1,7 +1,11 @@
-import { CHANGELOG_I18N } from "./changelog.i18n.js";
-import { SPARROW_CONFIG } from "./config.js";
+import { CHANGELOG_I18N } from "./changelog.i18n.js?v=2";
+import { SPARROW_CONFIG } from "./config.js?v=2";
 
 const STORAGE_LANG_KEY = "sparrow_lang";
+const githubRepoUrl = SPARROW_CONFIG.githubRepoUrl.replace(/\/+$/, "");
+const githubRepoPath = new URL(githubRepoUrl).pathname.replace(/^\/+|\/+$/g, "");
+const githubReleasesApiUrl = new URL(`https://api.github.com/repos/${githubRepoPath}/releases`);
+githubReleasesApiUrl.searchParams.set("per_page", "20");
 const supportedLanguages = Object.keys(CHANGELOG_I18N);
 const savedLanguage = localStorage.getItem(STORAGE_LANG_KEY);
 const initialLanguage = supportedLanguages.includes(savedLanguage)
@@ -131,7 +135,7 @@ function isValidRelease(release) {
 
 async function loadReleases() {
   try {
-    const response = await fetch(SPARROW_CONFIG.githubReleasesApiUrl, {
+    const response = await fetch(githubReleasesApiUrl, {
       headers: { Accept: "application/vnd.github+json" }
     });
     if (!response.ok) {
@@ -159,7 +163,7 @@ document.querySelectorAll("[data-lang]").forEach((button) => {
   button.addEventListener("click", () => applyLanguage(button.dataset.lang));
 });
 
-document.getElementById("all-releases-link").href = SPARROW_CONFIG.githubReleasesUrl;
+document.getElementById("all-releases-link").href = `${githubRepoUrl}/releases`;
 
 const menuToggle = document.getElementById("menu-toggle");
 const mobileNav = document.getElementById("mobile-nav");
