@@ -9,17 +9,17 @@
     content="A private messenger for Android. Messages are protected on your phone and delivered by servers run by different communities."
   />
   <meta name="theme-color" content="#EEF2F5" />
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./assets/styles.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="nav-inner">
       <a href="#top" class="brand" aria-label="Sparrow Home" data-i18n-aria-label="nav.home">
-        <img src="./favicon.svg" alt="" width="26" height="26" />
+        <img src="./assets/favicon.svg" alt="" width="26" height="26" />
         <span>Sparrow</span>
       </a>
 
@@ -317,13 +317,13 @@ SPARROW_CONTROL_PLANES=https://sparrow-messenger.org</code></pre>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <span>© 2026 Christian Bergmann · Sparrow</span>
       <div class="footer-links">
         <a data-config-href="githubRepoUrl" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a data-config-href="docsHomeUrl" target="_blank" rel="noopener noreferrer" data-i18n="nav.docs">Documentation</a>
-        <a href="#contact-placeholder" data-placeholder="contact" data-i18n="footer.contact">Contact</a>
-        <a href="#contribute" data-i18n="nav.contribute">Contribute</a>
-        <a href="./privacy.html" data-i18n="footer.privacy">Privacy policy</a>
+        <a href="#contribute-community" data-i18n="footer.contact">Contact</a>
+        <a href="./index.html#contribute" data-i18n="nav.contribute">Contribute</a>
+        <a href="./pages/privacy.html" data-i18n="footer.privacy">Privacy policy</a>
+        <a href="./pages/changelog.html" data-i18n="footer.changelog">Changelog</a>
       </div>
     </div>
   </footer>
@@ -340,6 +340,6 @@ SPARROW_CONTROL_PLANES=https://sparrow-messenger.org</code></pre>
     </div>
   </div>
 
-  <script type="module" src="./app.js"></script>
+  <script type="module" src="./scripts/app.js"></script>
 </body>
 </html>

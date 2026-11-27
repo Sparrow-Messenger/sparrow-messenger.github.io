@@ -85,7 +85,8 @@ code {
   font-weight: 500;
 }
 
-.nav-links a:hover { color: var(--primary); }
+.nav-links a:hover,
+.nav-links a.active { color: var(--primary); }
 
 .nav-actions {
   display: flex;
@@ -586,7 +587,17 @@ a[aria-disabled="true"] {
   padding-top: 3.5rem;
 }
 
+.changelog-band {
+  min-height: calc(100vh - 164px);
+  padding-top: 3.5rem;
+}
+
 .policy-content h1 {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  margin-bottom: 0.5rem;
+}
+
+.changelog-content h1 {
   font-size: clamp(2.2rem, 5vw, 3.2rem);
   margin-bottom: 0.5rem;
 }
@@ -594,6 +605,61 @@ a[aria-disabled="true"] {
 .policy-date {
   margin: 0 0 2.5rem;
   color: var(--text-muted);
+}
+
+.changelog-lead {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.changelog-empty {
+  margin-top: 2rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.changelog-list {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.changelog-entry {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.changelog-entry:first-child {
+  padding-top: 0;
+}
+
+.changelog-entry time {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.changelog-entry h2 {
+  margin: 0.4rem 0 0.75rem;
+  font-size: 1.2rem;
+}
+
+.changelog-entry ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.changelog-entry li {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.changelog-entry li + li {
+  margin-top: 0.35rem;
 }
 
 .policy-content h2 {
@@ -644,6 +710,7 @@ a[aria-disabled="true"] {
 
 .footer-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.25rem;
 }
 

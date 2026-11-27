@@ -8,12 +8,13 @@ Static bilingual (English & German) website for [Sparrow](https://github.com/cbg
 - **Animated Sparrow Mark**: Faithful Canvas2D port of `StartupArtwork.kt`'s `SparrowAnimation` (flight entrance, wing-to-shield morph, repeating pulse ring, and click-to-pulse recoil).
 - **Interactive Onion Routing Visualizer**: Animated multi-hop circuit diagram (`2`, `3`, or `5` hops) with onion layer peeling, optional decoy envelopes, and Control Plane discovery.
 - **Bilingual (`EN` / `DE`)**: Automatic browser language detection with manual header/footer switcher and `localStorage` persistence.
+- **Privacy & Changelog Pages**: Public bilingual pages in `pages/`, with release notes maintained in `scripts/changelog.i18n.js`.
 - **Privacy-Friendly Product Video**: Uses a click-to-load `youtube-nocookie.com` facade alongside a direct YouTube link.
 - **Zero Build Required**: Plain HTML5, CSS3, and ES modules.
 
 ## Configuring Links
 
-Edit [`config.js`](config.js) to update project links:
+Edit [`scripts/config.js`](scripts/config.js) to update project links:
 
 - `paypalUrl`: PayPal.Me URL for the donation button
 - `supporter`: Your GitHub Sponsors / Liberapay / recurring support URL (`isPlaceholder: false`)

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog — Sparrow</title>
+  <meta name="description" content="Release notes and updates for Sparrow." />
+  <meta name="theme-color" content="#EEF2F5" />
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="../index.html" class="brand" aria-label="Sparrow Home" data-i18n-aria-label="nav.home">
+        <img src="../assets/favicon.svg" alt="" width="26" height="26" />
+        <span>Sparrow</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation" data-i18n-aria-label="nav.mainNavigation">
+        <a href="../index.html#preview" data-i18n="nav.preview">Introduction</a>
+        <a href="../index.html#how-it-works" data-i18n="nav.transport">How it works</a>
+        <a href="../index.html#contribute" data-i18n="nav.contribute">Contribute</a>
+        <a href="https://cbgm.github.io/Sparrow/" target="_blank" rel="noopener noreferrer" data-i18n="nav.docs">Documentation</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-toggle" role="group" aria-label="Language switch" data-i18n-aria-label="nav.languageSwitch">
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button type="button" class="lang-btn" data-lang="de" aria-pressed="false">DE</button>
+        </div>
+        <a
+          class="icon-link"
+          href="https://github.com/cbgm/Sparrow"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          data-i18n-aria-label="nav.github"
+        >
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+          </svg>
+        </a>
+        <button
+          type="button"
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-label="Toggle navigation"
+          data-i18n-aria-label="nav.toggleNavigation"
+          aria-controls="mobile-nav"
+          aria-expanded="false"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" data-i18n-aria-label="nav.mobileNavigation">
+      <a href="../index.html#preview" data-i18n="nav.preview">Introduction</a>
+      <a href="../index.html#how-it-works" data-i18n="nav.transport">How it works</a>
+      <a href="../index.html#contribute" data-i18n="nav.contribute">Contribute</a>
+      <a href="https://cbgm.github.io/Sparrow/" target="_blank" rel="noopener noreferrer" data-i18n="nav.docs">Documentation</a>
+    </nav>
+  </header>
+
+  <main class="band band-base changelog-band">
+    <section class="container changelog-content" aria-labelledby="changelog-title">
+      <h1 id="changelog-title" data-i18n="pageHeading">Changelog</h1>
+      <p class="changelog-lead" data-i18n="pageIntro">Release notes and updates for Sparrow.</p>
+
+      <p class="changelog-empty" id="changelog-empty" data-i18n="emptyMessage" hidden>Release notes will appear here when updates are published.</p>
+      <ol class="changelog-list" id="changelog-list" hidden></ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="https://github.com/cbgm/Sparrow" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://cbgm.github.io/Sparrow/" target="_blank" rel="noopener noreferrer" data-i18n="nav.docs">Documentation</a>
+        <a href="../index.html#contribute-community" data-i18n="footer.contact">Contact</a>
+        <a href="../index.html#contribute" data-i18n="nav.contribute">Contribute</a>
+        <a href="./privacy.html" data-i18n="footer.privacy">Privacy policy</a>
+        <a href="./changelog.html" data-i18n="footer.changelog">Changelog</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="../scripts/changelog.js"></script>
+</body>
+</html>

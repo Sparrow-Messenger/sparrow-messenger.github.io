@@ -15,6 +15,7 @@ export const TRANSLATIONS = {
       howItWorks: "How it works",
       preview: "Introduction",
       contribute: "Contribute",
+      changelog: "Changelog",
       github: "GitHub"
     },
     hero: {
@@ -190,9 +191,9 @@ export const TRANSLATIONS = {
     },
     footer: {
       tagline: "Private chats, delivered by servers run by different communities.",
-      copyright: "© 2026 Christian Bergmann · Sparrow",
       contact: "Contact",
       privacy: "Privacy policy",
+      changelog: "Changelog",
       linksTitle: "Project",
       docsTitle: "Documentation",
       linkGithub: "GitHub Repository",
@@ -209,7 +210,7 @@ export const TRANSLATIONS = {
       placeholderBadge: "Configurable Placeholder",
       supporterTitle: "Supporter / Sponsorship Placeholder",
       supporterBody:
-        "Add your GitHub Sponsors, Liberapay, Patreon, or Open Collective URL inside SPARROW_CONFIG.supporter in config.js.",
+        "Add your GitHub Sponsors, Liberapay, Patreon, or Open Collective URL inside SPARROW_CONFIG.supporter in scripts/config.js.",
       contactTitle: "Get in touch",
       contactBody: "Email us at {email}. If your email app doesn’t open, copy the address.",
       contactAction: "Open email app",
@@ -237,6 +238,7 @@ export const TRANSLATIONS = {
       howItWorks: "So funktioniert’s",
       preview: "Einführung",
       contribute: "Beitragen",
+      changelog: "Changelog",
       github: "GitHub"
     },
     hero: {
@@ -415,9 +417,9 @@ export const TRANSLATIONS = {
     },
     footer: {
       tagline: "Private Nachrichten, zugestellt über Server unabhängiger Gemeinschaften.",
-      copyright: "© 2026 Christian Bergmann · Sparrow",
       contact: "Kontakt",
       privacy: "Datenschutzerklärung",
+      changelog: "Changelog",
       linksTitle: "Projekt",
       docsTitle: "Dokumentation",
       linkGithub: "GitHub-Repository",
@@ -434,7 +436,7 @@ export const TRANSLATIONS = {
       placeholderBadge: "Konfigurierbarer Platzhalter",
       supporterTitle: "Platzhalter für Supporter-Link",
       supporterBody:
-        "Hinterlege deine URL zu GitHub Sponsors, Liberapay, Patreon oder Open Collective in config.js unter SPARROW_CONFIG.supporter.",
+        "Hinterlege deine URL zu GitHub Sponsors, Liberapay, Patreon oder Open Collective in scripts/config.js unter SPARROW_CONFIG.supporter.",
       contactTitle: "Kontakt aufnehmen",
       contactBody:
         "Schreib uns an {email}. Falls sich kein E-Mail-Programm öffnet, kannst du die Adresse kopieren.",
