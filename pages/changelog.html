@@ -70,7 +70,15 @@
       <h1 id="changelog-title" data-i18n="pageHeading">Changelog</h1>
       <p class="changelog-lead" data-i18n="pageIntro">Release notes and updates for Sparrow.</p>
 
-      <p class="changelog-empty" id="changelog-empty" data-i18n="emptyMessage" hidden>Release notes will appear here when updates are published.</p>
+      <a
+        class="changelog-view-all"
+        id="all-releases-link"
+        href="https://github.com/cbgm/Sparrow/releases"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="viewAllReleases"
+      >View all releases on GitHub</a>
+      <p class="changelog-status" id="changelog-status" role="status" aria-live="polite" data-i18n="loadingMessage">Loading releases from GitHub…</p>
       <ol class="changelog-list" id="changelog-list" hidden></ol>
     </section>
   </main>

@@ -614,7 +614,13 @@ a[aria-disabled="true"] {
   margin: 0;
 }
 
-.changelog-empty {
+.changelog-view-all {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-weight: 700;
+}
+
+.changelog-status {
   margin-top: 2rem;
   color: var(--text-muted);
   line-height: 1.7;
@@ -646,6 +652,46 @@ a[aria-disabled="true"] {
 .changelog-entry h2 {
   margin: 0.4rem 0 0.75rem;
   font-size: 1.2rem;
+}
+
+.changelog-entry h2 a {
+  color: var(--text);
+}
+
+.changelog-entry h2 a:hover {
+  color: var(--primary);
+}
+
+.changelog-release-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.84rem;
+}
+
+.changelog-release-meta code {
+  font-size: 0.8rem;
+}
+
+.changelog-release-notes {
+  margin-top: 1rem;
+}
+
+.changelog-release-notes summary {
+  color: var(--primary);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.changelog-release-notes p {
+  margin: 0.75rem 0 0;
+  color: var(--text-muted);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .changelog-entry ul {

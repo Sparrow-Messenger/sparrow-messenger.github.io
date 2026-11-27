@@ -17,20 +17,17 @@ export const CHANGELOG_I18N = {
     },
     pageHeading: "Changelog",
     pageIntro: "Release notes and updates for Sparrow.",
-    emptyMessage: "Release notes will appear here when updates are published.",
+    loadingMessage: "Loading releases from GitHub…",
+    emptyMessage: "No published releases yet.",
+    errorMessage: "GitHub releases could not be loaded. You can view them directly on GitHub.",
+    viewAllReleases: "View all releases on GitHub",
+    releaseNotes: "Release notes",
+    preRelease: "Pre-release",
     footer: {
       contact: "Contact",
       privacy: "Privacy policy",
       changelog: "Changelog"
-    },
-    entries: [
-      {
-        date: "2026-11-27",
-        dateLabel: "November 27, 2026",
-        title: "Example changelog entry",
-        changes: ["Placeholder content showing how future release notes will appear. Replace this with a real update."]
-      }
-    ]
+    }
   },
   de: {
     pageTitle: "Änderungen — Sparrow",
@@ -50,19 +47,16 @@ export const CHANGELOG_I18N = {
     },
     pageHeading: "Changelog",
     pageIntro: "Versionshinweise und Neuigkeiten zu Sparrow.",
-    emptyMessage: "Hier erscheinen Versionshinweise, sobald es Neuigkeiten gibt.",
+    loadingMessage: "Lade Releases von GitHub…",
+    emptyMessage: "Noch keine Releases veröffentlicht.",
+    errorMessage: "Die GitHub-Releases konnten nicht geladen werden. Du kannst sie direkt auf GitHub ansehen.",
+    viewAllReleases: "Alle Releases auf GitHub ansehen",
+    releaseNotes: "Release-Hinweise",
+    preRelease: "Vorabversion",
     footer: {
       contact: "Kontakt",
       privacy: "Datenschutzerklärung",
       changelog: "Changelog"
-    },
-    entries: [
-      {
-        date: "2026-11-27",
-        dateLabel: "27. November 2026",
-        title: "Beispieleintrag",
-        changes: ["Platzhalter, der zeigt, wie künftige Versionshinweise aussehen. Durch echte Neuigkeiten ersetzen."]
-      }
-    ]
+    }
   }
 };
