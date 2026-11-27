@@ -686,52 +686,26 @@ a[aria-disabled="true"] {
   font-weight: 600;
 }
 
-.changelog-release-body {
-  margin-top: 0.75rem;
+.changelog-release-notes p {
+  margin: 0.75rem 0 0;
   color: var(--text-muted);
   line-height: 1.7;
+  white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
 
-.changelog-release-body h3,
-.changelog-release-body h4 {
-  margin: 1rem 0 0.5rem;
-  color: var(--text);
-}
-
-.changelog-release-body h3 {
-  font-size: 1rem;
-}
-
-.changelog-release-body h4 {
-  font-size: 0.95rem;
-}
-
-.changelog-release-body p {
-  margin: 0.75rem 0 0;
-}
-
-.changelog-release-body ul,
-.changelog-release-body ol {
-  margin: 0.5rem 0 0;
+.changelog-entry ul {
+  margin: 0;
   padding-left: 1.25rem;
 }
 
-.changelog-release-body li {
+.changelog-entry li {
   color: var(--text-muted);
   line-height: 1.7;
 }
 
-.changelog-release-body li + li {
+.changelog-entry li + li {
   margin-top: 0.35rem;
-}
-
-.changelog-release-body a {
-  color: var(--primary);
-}
-
-.changelog-release-body code {
-  font-size: 0.9em;
 }
 
 .policy-content h2 {
