@@ -208,11 +208,11 @@
 
           <div class="server-setup-steps">
             <div class="wb-step">
-            <h4>1. Get the repository</h4>
+            <h4 data-i18n="hosting.step1Title">1. Get the repository</h4>
             <div class="terminal">
               <div class="terminal-top">
-                <span>Commands</span>
-                <button type="button" class="copy-btn" data-copy="git clone https://github.com/cbgm/Sparrow.git && cd Sparrow">Copy</button>
+                <span data-i18n="hosting.terminal">Commands</span>
+                <button type="button" class="copy-btn" data-copy="git clone https://github.com/cbgm/Sparrow.git && cd Sparrow" data-i18n="common.copy">Copy</button>
               </div>
               <pre><code>git clone https://github.com/cbgm/Sparrow.git
 cd Sparrow</code></pre>
@@ -220,12 +220,12 @@ cd Sparrow</code></pre>
             </div>
 
             <div class="wb-step">
-            <h4>2. Run the Unified Installer (Recommended)</h4>
-            <p class="step-note">Use Python 3.9+ to run the operator installer window (Combined Control Plane & Community Node):</p>
+            <h4 data-i18n="hosting.step2Title">2. Run the Unified Installer (Recommended)</h4>
+            <p class="step-note" data-i18n="hosting.step2Desc">Use Python 3.9+ to run the operator installer window (Combined Control Plane & Community Node):</p>
             <div class="terminal">
               <div class="terminal-top">
-                <span>Launcher</span>
-                <button type="button" class="copy-btn" data-copy="./server/installer/Start-SparrowServer.sh">Copy</button>
+                <span data-i18n="hosting.terminal">Commands</span>
+                <button type="button" class="copy-btn" data-copy="./server/installer/Start-SparrowServer.sh" data-i18n="common.copy">Copy</button>
               </div>
               <pre><code># Linux / macOS
 ./server/installer/Start-SparrowServer.sh
@@ -236,12 +236,12 @@ server\installer\Start-SparrowServer.cmd</code></pre>
             </div>
 
             <div class="wb-step">
-            <h4>3. Or run via Docker Compose</h4>
-            <p class="step-note">Alternatively, run the Control Plane or Community Node stacks directly:</p>
+            <h4 data-i18n="hosting.step3Title">3. Or run via Docker Compose</h4>
+            <p class="step-note" data-i18n="hosting.step3Desc">Alternatively, run the Control Plane or Community Node stacks directly:</p>
             <div class="terminal">
               <div class="terminal-top">
-                <span>Docker Compose</span>
-                <button type="button" class="copy-btn" data-copy="docker compose -f server/control-plane/docker-compose.yml up -d --build">Copy</button>
+                <span data-i18n="hosting.terminal">Commands</span>
+                <button type="button" class="copy-btn" data-copy="docker compose -f server/control-plane/docker-compose.yml up -d --build" data-i18n="common.copy">Copy</button>
               </div>
               <pre><code># Control Plane (Registry & Presence)
 docker compose -f server/control-plane/docker-compose.yml up -d --build
@@ -252,17 +252,17 @@ docker compose -f server/community-node/docker-compose.yml up -d --build</code><
             </div>
 
             <div class="wb-step">
-            <h4>4. Check that it’s working</h4>
+            <h4 data-i18n="hosting.step4Title">4. Check that it’s working</h4>
             <div class="terminal">
               <div class="terminal-top">
-                <span>Commands</span>
-                <button type="button" class="copy-btn" data-copy="curl -I https://&lt;your-server-domain&gt;/index">Copy</button>
+                <span data-i18n="hosting.terminal">Commands</span>
+                <button type="button" class="copy-btn" data-copy="curl -I https://&lt;your-server-domain&gt;/index" data-i18n="common.copy">Copy</button>
               </div>
               <pre><code>curl -I https://&lt;your-server-domain&gt;/index</code></pre>
             </div>
             <p class="step-note">
-              You’ll see <code>HTTP/2 200</code>. Visit <code>/index</code> on your server to view health status and registry info.
-              <a data-config-href="docsServerHostingUrl" target="_blank" rel="noopener noreferrer">Read the server setup guide →</a>
+              <span data-i18n="hosting.step4NoteBefore">You’ll see </span><code>HTTP/2 200</code><span data-i18n="hosting.step4NoteAfter">. Visit </span><code>/index</code><span data-i18n="hosting.step4NoteEnd"> on your server to view health status and registry info. </span>
+              <a data-config-href="docsServerHostingUrl" target="_blank" rel="noopener noreferrer" data-i18n="hosting.docsLink">Read the server setup guide →</a>
             </p>
             </div>
           </div>

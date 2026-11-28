@@ -135,17 +135,16 @@ export const TRANSLATIONS = {
       title: "Help run a Sparrow server",
       lead:
         "If you know your way around setting up computers, you can run a server that forwards messages. Each independently run server gives the network another place to deliver messages. This is optional; most people can use Sparrow on Android without running one.",
-      cloneTitle: "Get the server files",
-      configureTitle: "Set up your server",
-      buildTitle: "Start the server",
-      verifyTitle: "Check that it’s working",
+      step1Title: "1. Get the repository",
+      step2Title: "2. Run the Unified Installer (Recommended)",
+      step2Desc: "Use Python 3.9+ to run the operator installer window (Combined Control Plane & Community Node):",
+      step3Title: "3. Or run via Docker Compose",
+      step3Desc: "Alternatively, run the Control Plane or Community Node stacks directly:",
+      step4Title: "4. Check that it’s working",
+      step4NoteBefore: "You’ll see ",
+      step4NoteAfter: ". Visit ",
+      step4NoteEnd: " on your server to view health status and registry info.",
       terminal: "Commands",
-      configureNoteBefore: "Copy ",
-      configureNoteMiddle: " to ",
-      configureNoteAfter: " and enter the web address for your server. The secure connection will be set up automatically.",
-      buildNote: "This starts the programs that deliver messages and keep the connection secure.",
-      verifyNoteBefore: "If everything is working, you’ll see ",
-      verifyNoteAfter: ". That means your server is responding.",
       docsLink: "Read the server setup guide →"
     },
     video: {
@@ -358,20 +357,16 @@ export const TRANSLATIONS = {
       title: "Einen Sparrow-Server mitbetreiben",
       lead:
         "Wenn du dich mit der Einrichtung von Computern auskennst, kannst du einen Server betreiben, der Nachrichten weiterleitet. Jeder unabhängig betriebene Server bietet dem Netzwerk einen weiteren Ort für die Zustellung. Das ist freiwillig – die meisten können Sparrow einfach auf Android nutzen.",
-      cloneTitle: "Server-Dateien herunterladen",
-      configureTitle: "Server einrichten",
-      buildTitle: "Server starten",
-      verifyTitle: "Prüfen, ob alles läuft",
+      step1Title: "1. Repository klonen",
+      step2Title: "2. Einheitlichen Installer starten (Empfohlen)",
+      step2Desc: "Nutze Python 3.9+, um das Betreiber-Installer-Fenster zu starten (Kombinierte Control Plane & Community Node):",
+      step3Title: "3. Oder per Docker Compose ausführen",
+      step3Desc: "Alternativ kannst du Control Plane oder Community Node direkt starten:",
+      step4Title: "4. Prüfen, ob alles läuft",
+      step4NoteBefore: "Du siehst ",
+      step4NoteAfter: ". Rufe ",
+      step4NoteEnd: " auf deinem Server auf, um den Status und die Registry-Infos zu sehen.",
       terminal: "Befehle",
-      configureNoteBefore: "Kopiere ",
-      configureNoteMiddle: " nach ",
-      configureNoteAfter:
-        " und trage die Internetadresse deines Servers ein. Die sichere Verbindung wird automatisch eingerichtet.",
-      buildNote:
-        "Damit startest du die Programme, die Nachrichten weiterleiten und die Verbindung sichern.",
-      verifyNoteBefore: "Wenn alles funktioniert, erscheint ",
-      verifyNoteAfter:
-        ". Das bedeutet, dass dein Server erreichbar ist.",
       docsLink: "Anleitung zum Einrichten eines Servers lesen →"
     },
     video: {
