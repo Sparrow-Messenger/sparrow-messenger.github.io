@@ -208,60 +208,61 @@
 
           <div class="server-setup-steps">
             <div class="wb-step">
-            <h4 data-i18n="hosting.cloneTitle">Get the server files</h4>
+            <h4>1. Get the repository</h4>
             <div class="terminal">
               <div class="terminal-top">
-                <span data-i18n="hosting.terminal">Commands</span>
-                <button type="button" class="copy-btn" data-copy="git clone https://github.com && cd Sparrow/server" data-i18n="common.copy">Copy</button>
+                <span>Commands</span>
+                <button type="button" class="copy-btn" data-copy="git clone https://github.com/cbgm/Sparrow.git && cd Sparrow">Copy</button>
               </div>
-              <pre><code>git clone https://github.com
-cd Sparrow/server</code></pre>
+              <pre><code>git clone https://github.com/cbgm/Sparrow.git
+cd Sparrow</code></pre>
             </div>
             </div>
 
             <div class="wb-step">
-            <h4 data-i18n="hosting.configureTitle">Set up your server</h4>
-            <p class="file-caption"><strong>server/.env</strong></p>
+            <h4>2. Run the Unified Installer (Recommended)</h4>
+            <p class="step-note">Use Python 3.9+ to run the operator installer window (Combined Control Plane & Community Node):</p>
             <div class="terminal">
               <div class="terminal-top">
-                <span>.env</span>
-                <button type="button" class="copy-btn" data-copy="cp .env.example .env" data-i18n="common.copy">Copy</button>
+                <span>Launcher</span>
+                <button type="button" class="copy-btn" data-copy="./server/installer/Start-SparrowServer.sh">Copy</button>
               </div>
-              <pre><code>SPARROW_DOMAIN=node.example.org
-SPARROW_OPERATOR_NAME="My Community Node"
-SPARROW_CONTROL_PLANES=https://sparrow-messenger.org</code></pre>
+              <pre><code># Linux / macOS
+./server/installer/Start-SparrowServer.sh
+
+# Windows (Command Prompt / PowerShell)
+server\installer\Start-SparrowServer.cmd</code></pre>
+            </div>
+            </div>
+
+            <div class="wb-step">
+            <h4>3. Or run via Docker Compose</h4>
+            <p class="step-note">Alternatively, run the Control Plane or Community Node stacks directly:</p>
+            <div class="terminal">
+              <div class="terminal-top">
+                <span>Docker Compose</span>
+                <button type="button" class="copy-btn" data-copy="docker compose -f server/control-plane/docker-compose.yml up -d --build">Copy</button>
+              </div>
+              <pre><code># Control Plane (Registry & Presence)
+docker compose -f server/control-plane/docker-compose.yml up -d --build
+
+# Community Node (Gateway & Mailbox)
+docker compose -f server/community-node/docker-compose.yml up -d --build</code></pre>
+            </div>
+            </div>
+
+            <div class="wb-step">
+            <h4>4. Check that it’s working</h4>
+            <div class="terminal">
+              <div class="terminal-top">
+                <span>Commands</span>
+                <button type="button" class="copy-btn" data-copy="curl -I https://&lt;your-server-domain&gt;/index">Copy</button>
+              </div>
+              <pre><code>curl -I https://&lt;your-server-domain&gt;/index</code></pre>
             </div>
             <p class="step-note">
-              <span data-i18n="hosting.configureNoteBefore">Copy </span><code>.env.example</code><span data-i18n="hosting.configureNoteMiddle"> to </span><code>.env</code>            <span data-i18n="hosting.configureNoteAfter"> and enter the web address for your server. The secure connection will be set up automatically.</span>
-            </p>
-            </div>
-
-            <div class="wb-step">
-            <h4 data-i18n="hosting.buildTitle">Start the server</h4>
-            <div class="terminal">
-              <div class="terminal-top">
-                <span data-i18n="hosting.terminal">Commands</span>
-                <button type="button" class="copy-btn" data-copy="docker compose up -d --build" data-i18n="common.copy">Copy</button>
-              </div>
-              <pre><code>docker compose up -d --build</code></pre>
-            </div>
-            <p class="step-note" data-i18n="hosting.buildNote">
-              This starts the programs that deliver messages and keep the connection secure.
-            </p>
-            </div>
-
-            <div class="wb-step">
-            <h4 data-i18n="hosting.verifyTitle">Check that it’s working</h4>
-            <div class="terminal">
-              <div class="terminal-top">
-                <span data-i18n="hosting.terminal">Commands</span>
-                <button type="button" class="copy-btn" data-copy="curl -I https://example.org" data-i18n="common.copy">Copy</button>
-              </div>
-              <pre><code>curl -I https://example.org</code></pre>
-            </div>
-            <p class="step-note">
-              <span data-i18n="hosting.verifyNoteBefore">If everything is working, you’ll see </span><code>HTTP/2 200</code><span data-i18n="hosting.verifyNoteAfter">. That means your server is responding. </span>
-              <a data-config-href="docsServerHostingUrl" target="_blank" rel="noopener noreferrer" data-i18n="hosting.docsLink">Read the server setup guide →</a>
+              You’ll see <code>HTTP/2 200</code>. Visit <code>/index</code> on your server to view health status and registry info.
+              <a data-config-href="docsServerHostingUrl" target="_blank" rel="noopener noreferrer">Read the server setup guide →</a>
             </p>
             </div>
           </div>
